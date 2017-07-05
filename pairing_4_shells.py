@@ -9,7 +9,7 @@ H_DIM = 6 # Dimension of hamilton operator
 # Parameter g from 2-body interaction between nucleon pairs
 # < p + p - | V | q + q - > = -g
 g_min = -2.
-g_max = 5.
+g_max = 2.
 g_steps = 50
 
 g_values = np.linspace(g_min, g_max, g_steps)
@@ -24,7 +24,8 @@ for g in g_values:
             H[i][j] = -g
             
     # Add the single-particle energies in the diagonal matrix elements
-    H[1][1] += 2.
+    H[0][0] += 2.
+    H[1][1] += 4.
     H[2][2] += 6.
     H[3][3] += 6.
     H[4][4] += 8.
@@ -42,7 +43,7 @@ for g in g_values:
 
     # Calculate eigensystem    
     evalues, evectors = np.linalg.eig(H)
-    # Sort the eigenvalues
+    # Sort the eigenvalues. Apparently, np.linalg.eig imposes some random ordering. Try running without this line and be surprised
     evalues = np.sort(evalues)
     
     # Fill the array for plotting
@@ -62,5 +63,7 @@ plt.ylabel("Energy levels")
 
 for i in range(H_DIM):
     plt.plot(g_values, level[i,:])
+
+print(H)
 
 plt.show()
