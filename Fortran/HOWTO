@@ -1,0 +1,5 @@
+To create shared object ".so" file from python code, type
+
+$ f2py -c ex.f90 -m ex
+
+Prerequisites: f2py has to be installed on your system
