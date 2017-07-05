@@ -1,4 +1,7 @@
 import numpy as np
+import matplotlib
+
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 H_DIM = 6 # Dimension of hamilton operator
@@ -59,3 +62,5 @@ plt.ylabel("Energy levels")
 
 for i in range(H_DIM):
     plt.plot(g_values, level[i,:])
+
+plt.show()

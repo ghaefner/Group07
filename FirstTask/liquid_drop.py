@@ -1,6 +1,9 @@
 # Question set 1 - 2
 
 import numpy as np
+import matplotlib
+
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 # For debugging only
@@ -42,7 +45,6 @@ for i in range(np.shape(N)[0]):
             BEA[i][j] = 0.
         
 plt.imshow(BEA, origin='lower', interpolation='none')
-plt.show()
 
 # Get driplines from the list of binding energies
 # i.e. at a given Z, loop over N and find the transitions
@@ -77,4 +79,4 @@ plt.xlabel("Neutron number N")
 plt.ylabel("Proton number Z")
 plt.plot(driplines[:,0], z, color="red")   
 plt.plot(driplines[:,1], z, color="red")    
- 
+plt.show()
