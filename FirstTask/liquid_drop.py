@@ -3,6 +3,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# For debugging only
+#import pdb
+#pdb.set_trace()
+
 # Using the notation from B.A. Brown, Lecture Notes in Nuclear Structure Physics, NSCL, Michigan State University (2017)
 
 # Parameters for liquid drop model, all units are in MeV
