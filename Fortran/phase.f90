@@ -16,8 +16,10 @@ integer,intent(in) :: s
 integer,intent(in) :: N
 
 integer,intent(inout) :: a(N)
+!f2py intent(in, out) :: a(N)
 
 integer,intent(out) :: b(N)
+!f2py intent(out) :: b(N)
 integer,intent(out) :: phase
 !----------------------------------
 integer i1,i2

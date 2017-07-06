@@ -38,4 +38,5 @@ def bandp(p, q, r, s, N, a):
         phase = sort(N, a)
         b = a
 
-    return phase, b
+    print(b)
+    return(b)
