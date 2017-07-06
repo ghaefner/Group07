@@ -1,9 +1,14 @@
-subroutine array(N,a,b)
+subroutine array(N,a,i,b)
 integer,intent(in) :: N
 integer,intent(in) :: a(N)
 
-integer,intent(out) :: b(N)
+integer,intent(out) :: b
 !---------------
-b = a+1
+integer c(N)
+
+c = a+1
+
+b = c(i)
+
 
 end subroutine array
