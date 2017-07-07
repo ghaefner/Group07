@@ -14,8 +14,8 @@ def sort(N, a):
                 c[j] = p
 
     phase = (-1)**number
-
-    return phase
+    
+    return(phase, c)
 
 def bandp(p, q, r, s, N, a):
     
@@ -38,9 +38,9 @@ def bandp(p, q, r, s, N, a):
         phase = 0
         b = c[:]
     elif point == 1:
-        phase = sort(N, a)
-        b = c[:]
+        phase, d = sort(N, c)
+        b = d[:]
         
     return(phase, b)
 
-print(bandp(1, 2, 3, 4, 4, [1, 2, 3, 4]))
+#print(bandp(7, 8, 1, 2, 4, [1, 2, 3, 4]))
