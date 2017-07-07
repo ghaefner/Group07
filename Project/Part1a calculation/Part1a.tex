@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+
+\title{Part1a}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Derivation of 2-body interaction}
+
+\begin{eqnarray*}
+V &=& \frac{1}{2} \sum_{p\sigma_p,q\sigma_q,r\sigma_r,s\sigma_s} <p\sigma_p,q\sigma_q|v|r\sigma_r,s\sigma_s> a_{p \sigma_p}^{\dagger} a_{q \sigma_q}^{\dagger} a_{s \sigma_s} a_{r \sigma_r} \\
+ &=& \frac{1}{2} \sum_{p\sigma_p,r} <p\sigma_p,p-\sigma_p|v|r\sigma_p,r-\sigma_p> a_{p \sigma_p}^{\dagger} a_{p -\sigma_p}^{\dagger} a_{r -\sigma_p} a_{r \sigma_p} \\
+ &=& \frac{1}{2} \sum_{p\sigma_p,r} (-g) a_{p \sigma_p}^{\dagger} a_{p -\sigma_p}^{\dagger} a_{r -\sigma_p} a_{r \sigma_p} \\
+ &=& \frac{1}{2} \sum_{p,r} (-g) \left[ \left( a_{p +}^{\dagger} a_{p -}^{\dagger} a_{r -} a_{r +}  \right) + \left( a_{p -}^{\dagger} a_{p +}^{\dagger} a_{r +} a_{r -} \right) \right] \\
+ &=& \frac{1}{2} \sum_{p,r} (-g) \left[ \left( a_{p +}^{\dagger} a_{p -}^{\dagger} a_{r -} a_{r +}  \right) + (-1)^2 \left( a_{p +}^{\dagger} a_{p -}^{\dagger} a_{r -} a_{r +}  \right) \right] \\
+ &=& -g \sum_{p,r} a_{p +}^{\dagger} a_{p -}^{\dagger} a_{r -} a_{r +} \\
+ &\equiv& -g \sum_{p,r} P_p^{+} P_r^{-} \\
+\end{eqnarray*}
+
+\section{Useful relation}
+\begin{eqnarray*}
+[A,BC] &=& B[A,C] + [A,C]B \\
+\bigl\{ A,BC \bigr\} &=& B \bigl\{ A,C \bigr\} - \bigl\{ A,C \bigr\} B
+\end{eqnarray*}
+
+then
+
+\begin{eqnarray*}
+[AB,CD] = A \bigl\{ B,C \bigr\} D - \bigl\{ A,C \bigr\} B D + C A \bigl\{ B,D \bigr\} - C \bigl\{ A,D \bigr\} B
+\end{eqnarray*}
+
+\section{Commutation relation: $H_0$}
+\begin{eqnarray*}
+[S_z,H_0] &=& \sum_{p \sigma_p}\frac{\sigma_p}{2} \sum_{q\sigma_q} (q-1) [a_{p \sigma_p}^{\dagger} a_{p \sigma_p},a_{q \sigma_q}^{\dagger} a_{q \sigma_q}] \\
+&=& \sum_{p \sigma_p}\frac{\sigma_p}{2} \sum_{q\sigma_q} (q-1) \delta_{p,q}\delta_{\sigma_p,\sigma_q} \left(  a_{p \sigma_p}^{\dagger} a_{q \sigma_q} - a_{q \sigma_q}^{\dagger}a_{p \sigma_p}  \right) \\
+&=& \sum_{p \sigma_p}\frac{\sigma_p}{2} (p-1) \left(  a_{p \sigma_p}^{\dagger} a_{p \sigma_p} - a_{p \sigma_p}^{\dagger}a_{p \sigma_p}  \right) \\
+&=& 0
+\end{eqnarray*}
+
+\begin{eqnarray*}
+[S_+,H_0] &=& \sum_{p \sigma_p} (p-1) [ a_{p+}^{\dagger} a_{p-} , a_{p \sigma_p}^{\dagger} a_{p \sigma_p} ] \\
+&=& \sum_{p \sigma_p} (p-1) [ - \delta_{\sigma_p +} a_{p\sigma_p}^{\dagger} a_{p-} + \delta_{\sigma_p -} a_{p +}^{\dagger} a_{p \sigma_p} ] \\
+&=& \sum_{p} (p-1) [-  a_{p +}^{\dagger} a_{p-} +  a_{p +}^{\dagger} a_{p -}] \\
+&=& 0
+\end{eqnarray*}
+
+\begin{eqnarray*}
+[S_-,H_0] = \left( - [S_+,H_0] \right)^{\dagger} = 0
+\end{eqnarray*}
+
+therefore
+\begin{eqnarray*}
+[S_z,H_0] &=& 0 \\
+\left[ \bm{S}^2,H_0 \right] &=& 0
+\end{eqnarray*}
+
+\section{Commutation relation: $V$}
+\begin{eqnarray*}
+[P_p^{+},S_+] &=& [a_{p+}^{\dagger}a_{p-}^{\dagger} , a_{p+}^{\dagger} a_{p-} ] \\
+&=& a_{p+}^{\dagger} a_{p+}^{\dagger} \bigl\{ a_{p-}^{\dagger} , a_{p-}  \bigr\} \\
+&=& 0
+\end{eqnarray*}
+
+\begin{eqnarray*}
+[P_p^{-},S_{-}] = \left( - [P_p^{+} , S_{+} ] \right)^{\dagger} = 0
+\end{eqnarray*}
+
+\begin{eqnarray*}
+[P_p^{-},S_+] &=& [a_{p-} a_{p+} , a_{p+}^{\dagger} a_{p-} ] \\
+&=& a_{p-}  \bigl\{ a_{p+} , a_{p+}^{\dagger}  \bigr\} a_{p-} \\
+&=& 0
+\end{eqnarray*}
+
+\begin{eqnarray*}
+[P_p^{+},S_{-}] = \left( - [P_p^{-} , S_{+} ] \right)^{\dagger} = 0
+\end{eqnarray*}
+
+\begin{eqnarray*}
+[P_p^{+},S_z] &=& \sum_{\sigma_p} \frac{\sigma_p}{2} [a_{p+}^{\dagger} a_{p-}^{\dagger} , a_{p\sigma_p}^{\dagger} a_{p\sigma_p} ] \\
+&=& \sum_{\sigma_p} \frac{\sigma_p}{2} \left( a_{p \sigma_p}^{\dagger} a_{p+}^{\dagger} \delta_{\sigma_p-} -  a_{p \sigma_p}^{\dagger} a_{p-}^{\dagger} \delta_{\sigma_p+} \right) \\
+&=& \left( -\frac{1}{2}\right) a_{p -}^{\dagger} a_{p+}^{\dagger} - \left( \frac{1}{2} \right) a_{p+}^{\dagger} a_{p-}^{\dagger} \\
+&=& 0
+\end{eqnarray*}
+
+\begin{eqnarray*}
+[P_p^{-},S_z] = \left( - [P_p^{+},S_z] \right)^{\dagger} = 0
+\end{eqnarray*}
+
+therefore
+\begin{eqnarray*}
+[S_z,V] &=& 0 \\
+\left[ \bm{S}^2,V \right] &=& 0
+\end{eqnarray*}
+
+\end{document}
