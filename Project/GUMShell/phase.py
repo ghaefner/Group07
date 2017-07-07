@@ -37,6 +37,5 @@ def bandp(p, q, r, s, N, a):
     elif point == 1:
         phase = sort(N, a)
         b = a
-
-    print(b)
-    return(b)
+        
+    return(phase, b)

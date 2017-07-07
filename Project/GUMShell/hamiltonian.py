@@ -1,4 +1,5 @@
 import numpy as np
+import pdb
 from phase import bandp
 
 # Basis of Slater determinants
@@ -27,17 +28,17 @@ for alpha in range(basis_size):
                             if tb[4] == 0.:
                                 continue
                             else:
-                                print([p, q, r, s])
-                                bandp(p, q, r, s, n_particles, basis[alpha][:n_particles])
-#                                if phi == 0:
-#                                    continue
-#                                else:
-#                                    for beta in range(basis_size):
-#                                        if(len(basis[beta][:n_particles]) != len(b)):
-#                                            print("Error: hamiltonian.py: Vector dimensions not matching")
-#                                            exit(0)
-#                                            
-#                                        if basis[beta][:n_particles] == b:
-#                                            H[alpha][beta] += phi*tb[4]
-#                                            
-#print(H)
+                                phi, b = bandp(p, q, r, s, n_particles, basis[alpha][:n_particles])
+                                if phi == 0:
+                                    continue
+                                else:
+                                    for beta in range(basis_size):
+                                        if(len(basis[beta][:n_particles]) != len(b)):
+                                            print("Error: hamiltonian.py: Vector dimensions not matching")
+                                            exit(0)
+                                            
+                                        #if basis[beta][:n_particles] == b:
+                                        if (basis[beta][:n_particles] == b).all():
+                                            H[alpha][beta] += phi*tb[4]
+                                            
+print(H)
