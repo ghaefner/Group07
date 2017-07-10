@@ -5,17 +5,16 @@ from numpy import linalg
 from phase import bandp
 
 # Basis of Slater determinants
-basis = np.loadtxt("output/basis_2x2.txt")
+basis = np.loadtxt("output/basis.txt")
 dim = basis.ndim
 if dim == 1:
 	basis_size = 1
 	n_particles = np.shape(basis)[0] - 1
+	basis = [basis]
 else:
 	basis_size = np.shape(basis)[0]
 	n_particles = np.shape(basis)[1] - 1
-	
-print(basis_size)
-print(n_particles)	
+
 # One-body matrix elements
 spe = np.loadtxt("hamiltonian/pairing_sp6.int")
 n_spe = np.shape(spe)[0]
@@ -69,3 +68,4 @@ evalues, evectors = linalg.eig(H)
     
 print(np.sort(evalues))
 print(evectors)
+

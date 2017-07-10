@@ -7,7 +7,7 @@ J = 2
 M = 3
 T = 4
 
-N_PARTICLES = 12
+N_PARTICLES = 16
 
 ################################################
 # Load file of available single-particle states
