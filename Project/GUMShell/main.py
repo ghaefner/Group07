@@ -2,6 +2,7 @@ import argparse
 from argparse import RawTextHelpFormatter
 
 from mscheme import mscheme
+from hamiltonian import hamiltonian.py
 
 ORBITAL_DIR="space/"
 BASIS_DIR="output/"
@@ -22,6 +23,5 @@ if args.orbitals and not args.nparticles:
 if args.orbitals:
     mscheme(ORBITAL_DIR + args.orbitals, args.nparticles)
 
-#import hamiltonian.py
 
 
