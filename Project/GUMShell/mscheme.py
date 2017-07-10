@@ -1,18 +1,20 @@
 import numpy as np
 
+# Give labels to the columns in the input file
 ID = 0
 N = 1
 J = 2
 M = 3
 T = 4
 
-N_PARTICLES = 3
+N_PARTICLES = 2
+
 ################################################
 # Load file of available single-particle states
 ################################################
 
-sp = np.loadtxt("./space/d5_2.txt")
-#sp = np.loadtxt("./space/0s1s.txt")
+#sp = np.loadtxt("./space/d5_2.txt")
+sp = np.loadtxt("./space/0s1s.txt")
 #sp = np.loadtxt("./space/0s1s2s3s.txt")
 
 # Determine number of unique single-particle (SP) states and number of shells (not needed at the moment)
@@ -88,7 +90,7 @@ else:
 M_values_positive = []
 M_values = []
 
-print("Listing basis states and their M quantum number")
+print("Listing basis states and their M quantum number (only positive M)")
 print()
 for i in range(N_PARTICLES):
     print("M", i + 1, "\t", end="")
@@ -141,7 +143,7 @@ for i in range(N_PARTICLES):
     f.write(str(i + 1))
     f.write("\t")
     
-f.write("M\n")
+f.write("2*M\n")
 
 # Write states
 for i in range(np.shape(basis)[0]):
