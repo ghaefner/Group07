@@ -5,7 +5,7 @@ from numpy import linalg
 from phase import bandp
 
 # Basis of Slater determinants
-basis = np.loadtxt("output/basis_0s1s2s3s_full.txt")
+basis = np.loadtxt("output/basis_0s1s_full.txt")
 basis_size = np.shape(basis)[0]
 n_particles = np.shape(basis)[1] - 1
 # One-body matrix elements
@@ -15,7 +15,7 @@ n_spe = np.shape(spe)[0]
 tbme = np.loadtxt("hamiltonian/pairing_tb.int")
 n_tbme = np.shape(spe)[0]
 # Single-particle states
-sp = np.loadtxt("space/0s1s2s3s.txt")
+sp = np.loadtxt("space/0s1s.txt")
 n_sp = np.shape(sp)[0]
 
 H = np.zeros((basis_size, basis_size))
