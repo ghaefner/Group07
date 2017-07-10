@@ -1,0 +1,23 @@
+First Exercise Sheet
+
+1) Single-/Double-Proton-Decay: CHECK
+	Write a formular that extract the single-/double-proton energies (i think its right)
+	Check on the proton-decay and double proton-decay
+	Get out the (Z,A) if condition is right (S_2p < 0 and S_p > 0, is this right?)
+	
+2) Drip lines: CHECK
+	Write a formular for liquid drop model
+	Look for BE < 0, means that its unbound
+	
+3) Charge Radii:
+	Get out the radii in arrays
+	Plot them vs. neutron numbers
+	
+4) 8+/6+ Ratio: NEED TO LEARN HOW TO OPEN THE FILE
+	Check for 8+1 and 6+1 in the same nucleus
+	Get out the Energy, Mass number and Z
+	
+5) Q-Value Half-Life determination: CHECK
+	Q-value = Mass-Excess, get out the right binding energy
+	Connect Q-value to Half-Life (Geiger Nutall?); Calculate it
+	

@@ -5,7 +5,7 @@ from numpy import linalg
 from phase import bandp
 
 # Basis of Slater determinants
-basis = np.loadtxt("output/basis_paired.txt")
+basis = np.loadtxt("output/basis_0s1s2s3s_full.txt")
 basis_size = np.shape(basis)[0]
 n_particles = np.shape(basis)[1] - 1
 # One-body matrix elements
