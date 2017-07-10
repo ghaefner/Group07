@@ -1,0 +1,16 @@
+  NuShellX V4.0 R2.003
+
+  W.D.M. Rae, Garsington, Oxford 2008
+
+  Uses NuShell code by W.D.M. Rae, Garsington, Oxford, UK, 2006/7
+
+
+  To get help messages use switch help ie run `NuShellX help`.
+
+  (M)odel,(L)evels,(O)ver,(T)rans,(Z)uker,E(x)it 
+
+  (M)odel,(L)evels,(O)ver,(T)rans,(Z)uker,E(x)it 
+  Model Space   Total no of shells   No of proton shells   Shell  1   Shell  2   Shell  3   Shell  4   Shell  5   Shell  6   Do you want to truncate model space y/n   Do you want to limit the sum over N=2*n+l y/n   Proton Min Max, Neutron Min Max, P+N Min Max   Do you want to limit the no of nucleons in any shell y/n   ShellNo Min Max   More y/n   ShellNo Min Max   More y/n   ShellNo Min Max   More y/n   ShellNo Min Max   More y/n   ShellNo Min Max   More y/n   ShellNo Min Max   More y/n   Do you want to limit no of nucleons in any MS y/n   Model Space data saved as  sdpn.sps
+
+  (M)odel,(L)evels,(O)ver,(T)rans,(Z)uker,E(x)it 
+  Command file shellx.bat saved to disk.

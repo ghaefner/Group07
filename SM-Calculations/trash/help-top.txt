@@ -1,0 +1,53 @@
+ inputs are:
+
+ fi (x1,x2,y1,y2)  (figure) to make figure box
+          x1,x2,y1,y2 is the position on the page
+          default is 2.0, 6.5, 4.0, 8.5
+          fi must be followed by the next two lines
+ xmin,xmax,xtics,xticl,label
+ ymin,ymax,ytics,yticl,label
+      xmin,xmax are the min,max values for the x-axis data
+      ymin,ymax are the min,max values for the y-axis data
+      tics is the spacing between small tic-marks
+      ticl is the spacing between large (labeled) tic-marks
+      label is the axis label information
+         x_(ss)  subscript ss
+         x$(ss)  superscript ss
+         ^s  greek letter s (sigma in this case)
+ fr xmin,xmax,ymin,ymax  for range of figure axis labels
+ ds line      (data symbol) solid line (default)
+    dash X    dashed line X=length of dash (x=1. default)
+    linef     line only drawn forward
+    lineb     line only drawn backward
+    dashf X   dash only drawn forward
+    cro XS    cross, XS = size change
+    plu XS    plus
+    squ XS    square
+    cir XS    circle
+    fir XS    filled circle
+    dia XS    diamond
+    gau  XW   gaussian with LINE, XW = width
+    gaud XW   gaussian with DASH
+    bin  XW   binning with LINE
+    bins XW   binning with LINE and summed
+    fill      fills in with color
+ di           (data input)
+              to be followed by list of data X,Y,(DY)
+ df f         (data file) data taken from external file f
+ dn a,b,c     (data norm) ynew = a*(y^b) 
+              c = 1., y = 4pi*(x^2)*y
+              c = 2., y = y^2
+              c = 3., y = 4pi*(x^4)*y
+ dl x,y,text  (data label) "text" put at (x,y)
+ dt text      (data type) xy or xydy (xy is the default)
+ sa LX,LY,SX,SY  (set axis) (must be before fi)
+               L = 0 for linear L = 1 for log (default is 0)
+               S = graph label size (default = 1.5)
+ nr x1,x2,y1,y2   labels axis only between these values
+ 3f f         (3d data file) x,y,z, data taken from external file f
+ 3m x         min,max limits for dataa file color range from external file x
+ ax  followed by combination of lrbt -                       labels only these axis
+ co name     change color to name
+ ls x        change the label size by a factor of x
+ sh followed by list of x,y - draws or fills the shape
+ ex = end (also EOF)
