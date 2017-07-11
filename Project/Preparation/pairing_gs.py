@@ -17,7 +17,7 @@ y_values2 = [E_0(x,omega,n_2) for x in g]
 
 plt.xlabel("Strength g")
 plt.ylabel("Ground-state energy E_0")
-plt.legend(('p=6','p=8'),loc='upper left')
-plt.plot(g,y_values1,'b-')
-plt.plot(g,y_values2,'r-')
+#plt.legend(['p=6'],['p=8'], loc=1)
+plt.legend(('Experiment','Liquid Drop'),loc='upper right')
+plt.plot(g,y_values1,'b-',g,y_values2,'r-')
 plt.show()

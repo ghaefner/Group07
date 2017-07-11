@@ -7,7 +7,7 @@ J = 2
 M = 3
 T = 4
 
-N_PARTICLES = 16
+N_PARTICLES = 2
 
 ################################################
 # Load file of available single-particle states
@@ -16,7 +16,7 @@ N_PARTICLES = 16
 #sp = np.loadtxt("./space/d5_2.txt")
 #sp = np.loadtxt("./space/0s1s2s3s.txt")
 #sp = np.loadtxt("./space/0s1s2s3s.txt")
-sp = np.loadtxt("./space/0s-5s.txt")
+sp = np.loadtxt("./space/0s1s.txt")
 
 # Determine number of unique single-particle (SP) states and number of shells (not needed at the moment)
 n_states = np.shape(sp)[0]
