@@ -5,7 +5,7 @@ ID = 0
 N = 1
 J = 2
 M = 3
-T = 4
+#T = 4
 
 N_PARTICLES = 2
 
@@ -13,7 +13,7 @@ N_PARTICLES = 2
 # Load file of available single-particle states
 ################################################
 
-sp = np.loadtxt("./space/0s1s.txt")
+sp = np.loadtxt("./space/sd.sp")
 #sp = np.loadtxt("./space/d5_2.txt")
 #sp = np.loadtxt("./space/0s1s2s3s.txt")
 #sp = np.loadtxt("./space/0s1s2s3s.txt")

@@ -3,7 +3,7 @@ from numpy import linalg
 # For debugging using python debugger (pdb)
 #import pdb
 #from phase import bandp
-#from phase2 import J_plus
+#from phase2 import Jcalc
 from phase_mod import bandp
 from phase_mod import J_plus
 from phase_mod import J_minus
