@@ -8,7 +8,7 @@ from phase_mod import bandp
 from phase_mod import Jcalc
 
 # Basis of Slater determinants
-basis = np.loadtxt("output/basis_2x2_full.txt")
+basis = np.loadtxt("output/basis.txt")
 dim = basis.ndim
 if dim == 1:
 	basis_size = 1
@@ -19,13 +19,13 @@ else:
 	n_particles = np.shape(basis)[1] - 1
 
 # One-body matrix elements
-spe = np.loadtxt("hamiltonian/pairing_sp.int")
+spe = np.loadtxt("hamiltonian/sd_sp.int")
 n_spe = np.shape(spe)[0]
 # Two-body matrix elements
-tbme = np.loadtxt("hamiltonian/pairing_tb.int")
+tbme = np.loadtxt("hamiltonian/usdb_m.int")
 n_tbme = np.shape(spe)[0]
 # Single-particle states
-sp = np.loadtxt("space/0s1s.txt")
+sp = np.loadtxt("space/sd.sp")
 n_sp = np.shape(sp)[0]
 max_osc = np.max(sp[:,1])
 min_osc = np.min(sp[:,1])
@@ -58,8 +58,10 @@ for alpha in range(basis_size):
                                             
                                         #if basis[beta][:n_particles] == b:
                                         if (basis[beta][:n_particles] == b).all():
+                                            print("Phase = ", phi, " TBME = ", tb[4])
                                             H[alpha][beta] += phi*tb[4]
                                             H[beta][alpha] = H[alpha][beta]
+                                            print("alpha =  ", alpha, " beta =  ", beta)
 
 for alpha in range(basis_size):
     spme = 0.
@@ -70,13 +72,14 @@ for alpha in range(basis_size):
     H[alpha][alpha] += spme
     spme = 0.
     
-#print(H)
+print(H)
+np.savetxt('Hamiltonian',H, delimiter=" ")
     
-evalues, evectors = linalg.eig(H)
+#evalues, evectors = linalg.eig(H)
     
 #print(np.sort(evalues))
 #print(evectors)
-
+'''
 # Calculate J value of Eigenvectors
 
 J_value = 0.
@@ -99,4 +102,4 @@ for i in range(basis_size):
                 print("J_value = ", J_value)
                 print()
     J_value = 0.
-
+'''
