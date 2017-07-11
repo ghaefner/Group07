@@ -19,6 +19,7 @@ def sort(N, a):
 
     return(phase, c)
 
+
 def Jcalc(p, tj, tm, N, a):
 
     point = 0
@@ -34,7 +35,6 @@ def Jcalc(p, tj, tm, N, a):
                     if (p == basis[k][1] and tj == basis[k][2] and tm + 2 == basis[k][3]):
                         point = 1
                         c[i] =  basis[k][0]
-
 
     for i in range(0, N - 1, 1):
         for j in range(i + 1, N, 1):
