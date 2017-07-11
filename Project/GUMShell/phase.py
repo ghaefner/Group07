@@ -42,5 +42,3 @@ def bandp(p, q, r, s, N, a):
         b = d[:]
         
     return(phase, b)
-
-#print(bandp(7, 8, 1, 2, 4, [1, 2, 3, 4]))
