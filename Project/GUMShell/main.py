@@ -16,7 +16,7 @@ parser.add_argument("-o", "--orbitals", help="File for the single-particle orbit
 parser.add_argument("-b", "--basis", help="File for the basis of Slater determinants")
 parser.add_argument("-1p", "--oneparticle", help="File for the one-particle matrix elements")
 parser.add_argument("-2p", "--twoparticle", help="File for the two-particle matrix elements")
-parser.add_argument("-ho", "--hamiltonian", help="File for Hamiltonian matrix")
+parser.add_argument("-ho", "--hamilton", help="File for Hamiltonian matrix")
 args = parser.parse_args()
 
 # Check several conditions
@@ -44,5 +44,7 @@ if not args.basis:
     print("Using standard basis file 'basis.txt'")
     args.basis = BASIS_DIR + "basis.txt"
     
-hamiltonian(args.basis, args.oneparticle, args.twoparticle, args.orbitals)
+    hamiltonian(args.basis, args.oneparticle, args.twoparticle, args.orbitals)
 
+if args.hamilton:
+    diag(args.hamilton)

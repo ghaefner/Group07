@@ -7,3 +7,5 @@
 # Standard output of GUMShell
 basis.txt
 Hamiltonian.txt
+eigenvalues.txt
+eigenvectors.txt
