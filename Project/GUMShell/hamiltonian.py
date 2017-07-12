@@ -16,12 +16,11 @@ if dim == 1:
 else:
 	basis_size = np.shape(basis)[0]
 	n_particles = np.shape(basis)[1] - 1
-
 # One-body matrix elements
-spe = np.loadtxt("hamiltonian/pairing_sp.int")
+spe = np.loadtxt("interaction/pairing_sp.int")
 n_spe = np.shape(spe)[0]
 # Two-body matrix elements
-tbme = np.loadtxt("hamiltonian/pairing_tb.int")
+tbme = np.loadtxt("interaction/pairing_tb.int")
 n_tbme = np.shape(spe)[0]
 # Single-particle states
 sp = np.loadtxt("space/0s1s.txt")
@@ -70,10 +69,8 @@ for alpha in range(basis_size):
     spme = 0.
     
 print(H)
-<<<<<<< HEAD
-np.savetxt('Hamiltonian_o20_test',H, delimiter=" ")
-=======
->>>>>>> c58aaa30d89572f58c1de421caaee13ea85413bd
+
+np.savetxt('hamiltonian/Hamiltonian',H, delimiter=" ")
     
 evalues, evectors = linalg.eig(H)
     
