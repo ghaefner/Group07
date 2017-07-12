@@ -73,7 +73,7 @@ for alpha in range(basis_size):
     spme = 0.
     
 print(H)
-np.savetxt('Hamiltonian',H, delimiter=" ")
+np.savetxt('Hamiltonian_o20_test',H, delimiter=" ")
     
 #evalues, evectors = linalg.eig(H)
     
