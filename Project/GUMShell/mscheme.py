@@ -5,22 +5,20 @@ def mscheme(basisstates, nparticles):
     print("mscheme.py: Creating basis of Slater determinants for", nparticles, "particles in the orbitals from file'", basisstates, "'")
     print()
 	
-# Give labels to the columns in the input file
-    ID = 0
-    N = 1
-    J = 2
-    M = 3
-    T = 4
-	
     N_PARTICLES = nparticles
 	
+# Give labels to the columns in the input file
+#   ID = 0
+#   N = 1
+#   J = 2
+    M = 3
+#   T = 4
+
 ################################################
 # Load file of available single-particle states
 ################################################
 	
-    #sp = np.loadtxt("./space/d5_2.txt")
     sp = np.loadtxt(basisstates)
-    #sp = np.loadtxt("./space/0s1s2s3s.txt")
 	
 # Determine number of unique single-particle (SP) states and number of shells (not needed at the moment)
     n_states = np.shape(sp)[0]
