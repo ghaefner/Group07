@@ -3,3 +3,7 @@
 
 # .orig files
 *.orig
+
+# Standard output of GUMShell
+basis.txt
+Hamiltonian.txt

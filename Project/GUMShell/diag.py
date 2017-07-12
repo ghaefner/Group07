@@ -1,7 +1,11 @@
 import numpy as np
 
-H = np.loadtxt("Hamiltonian")
+def diag(hamiltonian):
+    H = np.loadtxt("Hamiltonian")
 
-eigs, vecs = np.linalg.eig(H)
+    eigs, vecs = np.linalg.eig(H)
 
-print(np.sort(eigs))
+    for i in range(30):
+    	print(np.sort(eigs)[i])
+
+

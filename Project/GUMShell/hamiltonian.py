@@ -1,13 +1,20 @@
 import numpy as np
-from numpy import linalg
-# For debugging using python debugger (pdb)
-#import pdb
 #from phase import bandp
 #from phase2 import Jcalc
 from phase_mod import bandp
 
+HAMILTONIAN_DIR = "hamiltonian/"
+
 def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
 
+    print()
+    print("hamiltonian.py: Calculating the Hamiltonian matrix with the following input:")
+    print("\torbitals = ", orbitals)
+    print("\tbasis = ", basisfile)
+    print("\toneparticle = ", oneparticle)
+    print("\ttwoparticle = ", twoparticle)
+    print()
+    
     # Basis of Slater determinants
     basis = np.loadtxt(basisfile)
     dim = basis.ndim
@@ -71,10 +78,8 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
         H[alpha][alpha] += spme
     spme = 0.
     
-    print(H)
-    
-    evalues, evectors = linalg.eig(H)
-    
-    print(np.sort(evalues))
-    #print(evectors)
+    np.savetxt(HAMILTONIAN_DIR + "Hamiltonian.txt", H, delimiter = " ")
 
+    print()
+    print("hamiltonian.py: Saved Hamiltonian matrix to '", HAMILTONIAN_DIR, "Hamiltonian.txt'")
+    print()
