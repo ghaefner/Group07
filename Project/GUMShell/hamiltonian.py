@@ -41,7 +41,7 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
 #   max_m = np.max(sp[:,3])
 #   min_m = np.min(sp[:,3])
 
-	mass_factor = (18./(16.+n_particles))**(1./3.)
+    mass_factor = (18./(16.+n_particles))**(1./3.)
 	
     H = np.zeros((basis_size, basis_size))
 
