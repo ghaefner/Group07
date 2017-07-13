@@ -48,16 +48,14 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
     for alpha in range(basis_size):
         for p in range(1, n_sp + 1):
             for q in range(p + 1, n_sp + 1):
-                for r in range(1, n_sp + 1):
-                    for s in range(r + 1, n_sp + 1):
-                        #print(p, ", ", q, ", ", r, ", ", s)
+                for r in basis[alpha][:-1]:
+                    for s in basis[alpha][:-1]:
                         for tb in tbme:
                             if (tb[0] == p and tb[1] == q and tb[2] == r and tb[3] == s):
                                 if tb[4] == 0.:
                                     continue
                                 else:
                                     phi, b = bandp(p, q, r, s, n_particles, list(basis[alpha][:n_particles]))
-                                    #print("v_", p, q, r, s, " a_", p, "^+" ,"a_", q, "^+" ,"a_", r,"a_", s,  " |", basis[alpha][:n_particles], "> = ", phi, " * ", tb[4] ," |", b, " >")
                                     if phi == 0:
                                         continue
                                     else:
@@ -85,3 +83,5 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
     print()
     print("hamiltonian.py: Saved Hamiltonian matrix to '", HAMILTONIAN_DIR, "Hamiltonian.txt'")
     print()
+
+#hamiltonian("output/basis.txt", "interaction/sd_sp.int", "interaction/usdb_m.int", "space/sd.sp")
