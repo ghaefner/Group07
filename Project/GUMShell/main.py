@@ -1,9 +1,11 @@
 import argparse
 from argparse import RawTextHelpFormatter
+import time
 
 from mscheme import mscheme
 from hamiltonian import hamiltonian
 from diag import diag
+from truncation import truncate
 
 # Define directory names for certain files
 #ORBITAL_DIR="space/"
@@ -14,10 +16,13 @@ parser = argparse.ArgumentParser(description="GUMShell, an attempt at a shell mo
 parser.add_argument("-n", "--nparticles", help="Number of particles", type=int)
 parser.add_argument("-o", "--orbitals", help="File for the single-particle orbits")
 parser.add_argument("-b", "--basis", help="File for the basis of Slater determinants")
+parser.add_argument("-t", "--truncate", help="File for the truncation method")
 parser.add_argument("-1p", "--oneparticle", help="File for the one-particle matrix elements")
 parser.add_argument("-2p", "--twoparticle", help="File for the two-particle matrix elements")
 parser.add_argument("-ho", "--hamilton", help="File for Hamiltonian matrix")
 args = parser.parse_args()
+
+START = time.time()
 
 # Check several conditions
 # The most important file to have are the single-particle orbitals. All calculations rely on this
@@ -33,6 +38,10 @@ if not args.nparticles:
 
 else:    
     mscheme(args.orbitals, args.nparticles)
+    
+if args.truncate:
+    truncate(args.truncate, args.basis, args.orbitals)
+    args.basis = BASIS_DIR + "basis_truncated.txt"
 
 # The calculation of the Hamiltonian needs, in addition, the one- and two-particle matrix elements
 if (not args.oneparticle or not args.twoparticle):
@@ -48,3 +57,8 @@ if not args.basis:
 
 if args.hamilton:
     diag(args.hamilton)
+    
+STOP = time.time()
+
+print()
+print("main.py: GUMShell executed successfully, execution time: ", STOP - START, "seconds")
