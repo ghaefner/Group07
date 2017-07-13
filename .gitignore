@@ -5,6 +5,7 @@
 *.orig
 
 # Standard output of GUMShell
+jvalues.txt
 basis.txt
 Hamiltonian.txt
 eigenvalues.txt

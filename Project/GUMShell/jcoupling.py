@@ -20,6 +20,14 @@ def JpJm(basisfile, evectorfile, orbitalfile):
         basis_size = np.shape(basis)[0]
         n_particles = np.shape(basis)[1] - 1
         
+#    basis_zero_m = []
+#    for b in basis:
+#        if b[n_particles] == 0.:
+#            basis_zero_m.append(b.tolist())
+#    
+#    basis = basis_zero_m
+#    basis_size = np.shape(basis)[0]
+        
     evectors = np.loadtxt(evectorfile)
 
     sp = np.loadtxt(orbitalfile)
@@ -39,7 +47,7 @@ def JpJm(basisfile, evectorfile, orbitalfile):
             for j in np.arange(min_j, max_m + 1., 2.):
                 for m in np.arange(min_m, max_m + 1., 2.):
 
-                    phase_plus, beta_plus = J_plus(osc, j, m, n_particles, basis[i,:-1], sp, n_sp)
+                    phase_plus, beta_plus = J_plus(osc, j, m, n_particles, basis[i][:-1], sp, n_sp)
                     if phase_plus != 0:
                         # Calculate the action of all possible J^-
                         for osc2 in np.arange(min_osc, max_osc + 1., 1.):
@@ -49,7 +57,7 @@ def JpJm(basisfile, evectorfile, orbitalfile):
                                     
                                     if phase_minus != 0:
                                         for k in range(basis_size):
-                                            if (basis[k,:-1] == beta_minus).all():
+                                            if (basis[k][:-1] == beta_minus).all():
                                                 JpJm_matrix[i][k] += phase_plus*phase_minus
 
 
@@ -62,8 +70,12 @@ def JpJm(basisfile, evectorfile, orbitalfile):
                 for n in range(basis_size):
                     JpJm_evector_matrix[i][m] += evectors[j][i]*evectors[n][m]*JpJm_matrix[j][n]
     
+    JpJm_evector_matrix = np.round(JpJm_evector_matrix)
+    
     np.savetxt(J_DIR + "jvalues.txt", JpJm_evector_matrix,  fmt='%i', delimiter=" ")
     
     print()
     print("jcoupling.py: Saved J values to '", J_DIR + "jvalues.txt'")
     print()
+    
+#JpJm("output/basis.txt", "eigenspace/eigenvectors.txt", "space/sd.sp")

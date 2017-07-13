@@ -1,4 +1,6 @@
 import numpy as np
+from numpy import random
+from random import shuffle
 
 BASIS_DIR = "output/"
 
@@ -119,6 +121,34 @@ def emax(basisfile, orbitalfile, emax):
     print("truncation.py: Saved truncated basis to '" + BASIS_DIR + "basis_truncated.txt'")
     print("The truncation reduced the basis size from ", np.shape(basis)[0], " to ", np.shape(trunc)[0])
     print()
+    
+def mscm(basisfile, orbitalfile, probability):
+    
+    name = ["Monte", "Carlo", "Shell", "Model"]
+
+    shuffle(name)    
+    
+    print()
+    print("truncation.py: Truncating basis of Slater determinants in file'", basisfile, "'")
+    print("Truncation mode: " + name[0] + " " + name[1] + " " + name[2] + " " + name[3] + ", survival probability: ", probability)
+    print()
+    
+    basis = np.loadtxt(basisfile)
+    
+    # Throw out Slater basis states at random
+    trunc = []
+    
+    for b in basis:
+       rand = random.rand() 
+       if rand <= probability:
+           trunc.append(b)
+    
+    np.savetxt(BASIS_DIR + "basis_truncated.txt", trunc, delimiter=" ")
+    
+    print()
+    print("truncation.py: Saved truncated basis to '" + BASIS_DIR + "basis_truncated.txt'")
+    print("The truncation reduced the basis size from ", np.shape(basis)[0], " to ", np.shape(trunc)[0])
+    print()
 
 def occ(basisfile, orbitalfile, min_occ, max_occ):
     
@@ -202,6 +232,9 @@ def truncate(truncationfile, basisfile, orbitalfile):
             max_occ.append(method[i + 1])
         
         occ(basisfile, orbitalfile, min_occ, max_occ)
+    
+    if method[0] == 3.:
+        mscm(basisfile, orbitalfile, method[1])
         
         
-#truncate("truncation/truncation_minmax.txt", "output/basis.txt", "space/sd.sp")
+#truncate("truncation/truncation.txt", "output/basis.txt", "space/sd.sp")

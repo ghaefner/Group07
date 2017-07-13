@@ -7,4 +7,7 @@
 # 2 = truncation by imposing limits on orbital occupation
 #	Input format: 2 min_1 max_1 min_2 max_2 ...
 #	min_i/max_i is the minimum/maximum number of particles allowed in a single-particle orbital. The sequence of orbitals MUST be the same as in the single-particle basis file
-0 0
+# 3 = random truncation of the space
+#	Input format: 3 p
+#	p is the probability that a certain basis state will be used in the calculation.
+3 0.8
