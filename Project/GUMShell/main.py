@@ -6,6 +6,7 @@ from mscheme import mscheme
 from hamiltonian import hamiltonian
 from diag import diag
 from truncation import truncate
+from jcoupling import JpJm
 
 # Define directory names for certain files
 #ORBITAL_DIR="space/"
@@ -20,6 +21,7 @@ parser.add_argument("-t", "--truncate", help="File for the truncation method")
 parser.add_argument("-1p", "--oneparticle", help="File for the one-particle matrix elements")
 parser.add_argument("-2p", "--twoparticle", help="File for the two-particle matrix elements")
 parser.add_argument("-ho", "--hamilton", help="File for Hamiltonian matrix")
+parser.add_argument("-evec", "--eigenvectors", help="File for Eigenvectors")
 args = parser.parse_args()
 
 START = time.time()
@@ -58,6 +60,9 @@ hamiltonian(args.basis, args.oneparticle, args.twoparticle, args.orbitals)
 
 if args.hamilton:
     diag(args.hamilton)
+
+if args.eigenvectors:
+    JpJm(args.basis, args.eigenvectors, args.orbitals)
     
 STOP = time.time()
 
