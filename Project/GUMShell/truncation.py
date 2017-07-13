@@ -30,7 +30,7 @@ def npnh(basisfile, orbitalfile, n):
     
     print()
     print("truncation.py: Truncating basis of Slater determinants in file'", basisfile, "'")
-    print("Truncation mode: ", n, "p", n, "h")
+    print("Truncation mode: ", int(n), "p", int(n), "h")
     print()
     
     basis = np.loadtxt(basisfile)
@@ -78,7 +78,7 @@ def npnh(basisfile, orbitalfile, n):
         if 0.5*np.sum(np.abs(shell_occupation - shell_occupation_min)) <= n:
             trunc.append(b)
     
-    np.savetxt("basis_truncated.txt", trunc, delimiter=" ")
+    np.savetxt(BASIS_DIR + "basis_truncated.txt", trunc, delimiter=" ")
     
     print()
     print("truncation.py: Saved truncated basis to '" + BASIS_DIR + "basis_truncated.txt'")
@@ -113,7 +113,7 @@ def emax(basisfile, orbitalfile, emax):
         if getSlaterEnergy(b[:-1], orbitals) - emin <= emax:
             trunc.append(b)
     
-    np.savetxt("basis_truncated.txt", trunc, delimiter=" ")
+    np.savetxt(BASIS_DIR + "basis_truncated.txt", trunc, delimiter=" ")
     
     print()
     print("truncation.py: Saved truncated basis to '" + BASIS_DIR + "basis_truncated.txt'")
@@ -176,7 +176,7 @@ def occ(basisfile, orbitalfile, min_occ, max_occ):
             print(getShellOccupation(b[:-1], limits))
         flag = True
         
-    np.savetxt("basis_truncated.txt", trunc, delimiter=" ")
+    np.savetxt(BASIS_DIR + "basis_truncated.txt", trunc, delimiter=" ")
     
     print()
     print("truncation.py: Saved truncated basis to '" + BASIS_DIR + "basis_truncated.txt'")
@@ -184,9 +184,8 @@ def occ(basisfile, orbitalfile, min_occ, max_occ):
     print()
     
 def truncate(truncationfile, basisfile, orbitalfile):
+    print(truncationfile, " opened in truncate.py")
     method = np.loadtxt(truncationfile)
-    
-    print(method)
     
     if method[0] == 0.:
         npnh(basisfile, orbitalfile, method[1])

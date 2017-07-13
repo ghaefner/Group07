@@ -39,7 +39,13 @@ if not args.nparticles:
 else:    
     mscheme(args.orbitals, args.nparticles)
     
+if not args.basis:
+    print("Warning: main.py: No basis file given, but one-particle and two-particle matrix elements given.")
+    print("Using standard basis file 'basis.txt'")
+    args.basis = BASIS_DIR + "basis.txt"
+    
 if args.truncate:
+    print(args.truncate)
     truncate(args.truncate, args.basis, args.orbitals)
     args.basis = BASIS_DIR + "basis_truncated.txt"
 
@@ -47,13 +53,8 @@ if args.truncate:
 if (not args.oneparticle or not args.twoparticle):
     print("Warning: main.py: Incomplete input for calculation of hamiltonian matrix. Aborting.")
     exit(0)
-
-if not args.basis:
-    print("Warning: main.py: No basis file given, but one-particle and two-particle matrix elements given.")
-    print("Using standard basis file 'basis.txt'")
-    args.basis = BASIS_DIR + "basis.txt"
     
-    hamiltonian(args.basis, args.oneparticle, args.twoparticle, args.orbitals)
+hamiltonian(args.basis, args.oneparticle, args.twoparticle, args.orbitals)
 
 if args.hamilton:
     diag(args.hamilton)
