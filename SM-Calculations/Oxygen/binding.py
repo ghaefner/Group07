@@ -38,7 +38,7 @@ bindings = [[],[],[]]
 separation = [[],[],[]]
 Z0 = 8
 for i in range(len(zet)):
-	if zet[i] == Z0:
+	if zet[i] == Z0 and x[i] >= 18:
 		bindings[0].append(x[i])
 		bindings[1].append(bexpt[i])
 		bindings[2].append((BE(x[i],Z0)/x[i]))
