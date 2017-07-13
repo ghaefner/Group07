@@ -1,0 +1,10 @@
+# The very first number determines the truncation method
+# 0 = n-particle n-hole truncation
+# 	Input format: 0 n
+# 1 = truncation by energy
+#	Input format: 1 emax
+#	emax is the maximum allowed sum of single-particle energies with respect to the "ground state", i.e. the state which has the lowest sum of single-particle energies
+# 2 = truncation by imposing limits on orbital occupation
+#	Input format: 2 min_1 max_1 min_2 max_2 ...
+#	min_i/max_i is the minimum/maximum number of particles allowed in a single-particle orbital. The sequence of orbitals MUST be the same as in the single-particle basis file
+0 2
