@@ -1,3 +1,5 @@
+import numpy as np
+
 def sort(N, a):
 
     c = a.copy()
@@ -71,7 +73,8 @@ def J_plus(p, tj, tm, N, a, sp, n_sp):
         phase = 0
         b = c[:]
     elif point == 1:
-        phase, d = sort(N, c)
+        phi, d = sort(N, c)
+        phase = phi * np.sqrt((0.5*tj - 0.5*tm)*(0.5*tj + 0.5*tm + 1. ))
         b = d[:]
 
     return(phase, b)
@@ -99,7 +102,8 @@ def J_minus(p, tj, tm, N, a, sp, n_sp):
         phase = 0
         b = c[:]
     elif point == 1:
-        phase, d = sort(N, c)
+        phi, d = sort(N, c)
+        phase = phi * np.sqrt((0.5*tj + 0.5*tm) * (0.5*tj - 0.5*tm + 1. ))
         b = d[:]
 
     return(phase, b)
