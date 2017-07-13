@@ -1,0 +1,298 @@
+nr 0.,10.,0.,    6.00
+ts 1.,1.3
+ax
+r
+fi 4.,7.,1.,6.                                                   
+0.,  5.00,  5.00,  5.00
+ -1.00,  6.00,0.5,1.,E (MeV)
+ds linef
+lw  1.00
+dl 1.0,  -0.700,$( 23)Na
+dl   3.0,  -0.700,usdb      
+co red
+ds line
+di 
+     0.500     0.000
+     1.000     0.000
+ds fir
+di 
+     1.000     0.000
+dl    1.100,  -0.100, 3/2+
+co red
+ds line
+di 
+     0.500     0.399
+     1.200     0.399
+ds fir
+di 
+     1.200     0.399
+dl    1.300,   0.299, 5/2+
+co red
+ds line
+di 
+     0.500     2.168
+     1.400     2.168
+ds fir
+di 
+     1.400     2.168
+dl    1.500,   2.068, 7/2+
+co red
+ds line
+di 
+     0.500     2.173
+     0.800     2.173
+ds fir
+di 
+     0.800     2.173
+co red
+ds line
+di 
+     0.500     2.722
+     1.000     2.722
+ds fir
+di 
+     1.000     2.722
+co red
+ds line
+di 
+     0.500     2.762
+     1.600     2.762
+ds fir
+di 
+     1.600     2.762
+dl    1.700,   2.662, 9/2+
+co red
+ds line
+di 
+     0.500     3.749
+     1.200     3.749
+ds fir
+di 
+     1.200     3.749
+co red
+ds line
+di 
+     0.500     4.463
+     0.800     4.463
+ds fir
+di 
+     0.800     4.463
+co red
+ds line
+di 
+     0.500     4.662
+     1.400     4.662
+ds fir
+di 
+     1.400     4.662
+co red
+ds line
+di 
+     0.500     5.245
+     1.400     5.245
+ds fir
+di 
+     1.400     5.245
+co red
+ds line
+di 
+     0.500     5.422
+     1.200     5.422
+ds fir
+di 
+     1.200     5.422
+co red
+ds line
+di 
+     0.500     5.590
+     1.800     5.590
+ds fir
+di 
+     1.800     5.590
+dl    1.900,   5.490,11/2+
+co red
+ds line
+di 
+     0.500     5.793
+     1.200     5.793
+ds fir
+di 
+     1.200     5.793
+co red
+ds line
+di 
+     0.500     5.827
+     1.000     5.827
+ds fir
+di 
+     1.000     5.827
+co black
+
+nr 0.,10.,0.,    6.00
+fi 1.,4.,1.,6.
+0.,  5.00,  5.00,  5.00
+   -1.00,    6.00,0.5,1.,E (MeV)
+ds linef
+dl 1.5,  -0.800,experiment
+dl 0.5,  -0.400,$( 23)Na
+dl   1.50,  -0.400,(Z=11)
+dl   3.00,  -0.400,(N=12)
+co red
+ds line
+di 
+     0.500     0.000
+     1.000     0.000
+ds fir
+di 
+     1.000     0.000
+dl    1.100,  -0.100, 3/2+
+co red
+ds line
+di 
+     0.500     0.440
+     1.200     0.440
+ds fir
+di 
+     1.200     0.440
+dl    1.300,   0.340, 5/2+
+co red
+ds line
+di 
+     0.500     2.076
+     1.400     2.076
+ds fir
+di 
+     1.400     2.076
+dl    1.500,   1.976, 7/2+
+co red
+ds line
+di 
+     0.500     2.391
+     0.800     2.391
+ds fir
+di 
+     0.800     2.391
+co blue
+ds line
+di 
+     0.500     2.640
+     0.800     2.640
+ds cro
+di 
+     0.800     2.640
+co red
+ds line
+di 
+     0.500     2.704
+     1.600     2.704
+ds fir
+di 
+     1.600     2.704
+dl    1.700,   2.604, 9/2+
+co red
+ds line
+di 
+     0.500     2.982
+     1.000     2.982
+ds fir
+di 
+     1.000     2.982
+co blue
+ds line
+di 
+     0.500     3.678
+     1.000     3.678
+ds cro
+di 
+     1.000     3.678
+co blue
+ds line
+di 
+     0.500     3.848
+     1.200     3.848
+ds cro
+di 
+     1.200     3.848
+co red
+ds line
+di 
+     0.500     3.914
+     1.200     3.914
+ds fir
+di 
+     1.200     3.914
+co red
+ds line
+di 
+     0.500     4.430
+     0.800     4.430
+ds fir
+di 
+     0.800     4.430
+co red
+ds line
+di 
+     0.500     4.775
+     1.400     4.775
+ds fir
+di 
+     1.400     4.775
+co red
+ds line
+di 
+     0.500     5.379
+     1.200     5.379
+ds fir
+di 
+     1.200     5.379
+co red
+ds line
+di 
+     0.500     5.534
+     1.800     5.534
+ds fir
+di 
+     1.800     5.534
+dl    1.900,   5.434,11/2+
+co red
+ds line
+di 
+     0.500     5.742
+     1.200     5.742
+ds fir
+di 
+     1.200     5.742
+co red
+ds line
+di 
+     0.500     5.766
+     1.000     5.766
+ds fir
+di 
+     1.000     5.766
+co black
+ds line
+di 
+     0.500     5.776
+     0.500     5.776
+ds fir
+di 
+     0.500     5.776
+co red
+ds line
+di 
+     0.500     5.927
+     1.400     5.927
+ds fir
+di 
+     1.400     5.927
+co blue
+ds line
+di 
+     0.500     5.964
+     1.000     5.964
+ds cro
+di 
+     1.000     5.964
+co black
+

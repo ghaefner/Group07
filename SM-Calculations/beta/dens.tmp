@@ -1,0 +1,519 @@
+
+ (previous input option = cut    )   new option (ex to exit) : 
+ ia,iz    (default previous values =   48  20)
+
+ hbw=45*a**(-1/3)-25*a**(-2/3)
+
+ bp,bn,hbwp,hbwn =   1.8053 fm  1.8053 fm   12.732 MeV   12.732 MeV
+
+ (previous input option = az     )   new option (ex to exit) : 
+ ----- (type of potential,x) = (ho,      0.0000)  ------------ a,z =   23  10
+
+
+ ----- proton  potential integrals ----------
+
+              e        occ     vn       ve    kinetic   vso     vcoul
+
+ 1 0 s 1/2   -0.000    2.000   0.000   0.000   0.000   0.000    0.000
+ 2 0 p 3/2   -0.000    4.000   0.000   0.000   0.000   0.000    0.000
+ 3 0 p 1/2   -0.000    2.000   0.000   0.000   0.000   0.000    0.000
+ 4 0 d 5/2   -0.000    2.000   0.000   0.000   0.000   0.000    0.000
+ 5 0 d 3/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+ 6 1 s 1/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+ 7 0 f 7/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+ 8 0 f 5/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+ 9 1 p 3/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+10 1 p 1/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+11 0 g 9/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+
+ ----- neutron potential integrals ----------
+
+              e        occ     vn       ve    kinetic   vso     vcoul
+
+ 1 0 s 1/2   -0.000    2.000   0.000   0.000   0.000   0.000    0.000
+ 2 0 p 3/2   -0.000    4.000   0.000   0.000   0.000   0.000    0.000
+ 3 0 p 1/2   -0.000    2.000   0.000   0.000   0.000   0.000    0.000
+ 4 0 d 5/2   -0.000    5.000   0.000   0.000   0.000   0.000    0.000
+ 5 0 d 3/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+ 6 1 s 1/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+ 7 0 f 7/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+ 8 0 f 5/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+ 9 1 p 3/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+10 1 p 1/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+11 0 g 9/2   -0.000    0.000   0.000   0.000   0.000   0.000    0.000
+
+         ----- densities with cm correction (gd)  without cm correction (gp)
+         protons   neutrons   p + n    charge        protons   neutrons   n-p
+
+
+r(-2)    0.0000    0.0000    0.0000    0.0000        1.9245    2.0584
+r( 0)    0.0000    0.0000    0.0000    0.0000       10.0002   13.0002
+
+
+r( 2)    0.0000    0.0000    0.0000    0.0000        2.8544    2.9832    0.1288
+r( 4)    0.0000    0.0000    0.0000    0.0000        3.1398    3.2630    0.1232
+r( 6)    0.0000    0.0000    0.0000    0.0000        2.5968    2.7034    0.1066
+
+
+a        0.0000    0.0000    0.0000    0.0000        0.4920    0.4880   -0.0040
+c        0.0000    0.0000    0.0000    0.0000        2.8293    3.0576    0.2283
+rho      0.0000    0.0000    0.0000    0.0000        0.0812    0.0868    0.0056
+
+
+  0 R_p, R_n, R_m, R_n-R_p, R_ch =   2.854  2.983  2.928  0.129  2.923
+        Z R^2_p, Z R^2_ch =    81.476   85.467
+  delta Z R^2_p, Z R^2_ch =    81.476   85.467
+
+ (previous input option = gp     )   new option (ex to exit) : 
+ xl,iobtd( 0),iexp,ipl,ipen (default value) (x=h for help)
+
+ xji,xjf,xti,xtf,xtz,(ef,ei or ef-ei)
+ defaults =    0.0   0.0      0.0   0.0     -1.5    0.000    0.000
+
+          (in.lt.0 will loop from 1 to -in) (-9999 for all)
+ input for iobtd = 6,7,8,9
+ in = state number
+ in = -1 will include all states
+ in < -1 will loop from 1 to -in
+ in = 0 will take the values from the previous input
+ ip = parity (1/-1)
+ ic = mass of model space core
+ (iobtd.eq.6)        im = model-space-interaction code
+ (iobtd.eq.7,8,9,11) im = interaction-model-space code
+ (iobtd.eq.10)    name = full *.obd name
+
+ ini,inf,ipi,ipf,ic,name   defaults =    1   1   1   1  16                     
+  ( using bb2705_3703.obd           from user's area )
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  1.5  1.5  0.5    1    1  23.  10. -1.5
+
+ ef-ei =   -7.960 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   1.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.28147  0.0132  0.0132  0.2815
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  1.5  1.5  0.5    1    2  23.  10. -1.5
+
+ ef-ei =   -5.237 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   1.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.21944  0.0080  0.0212 -0.2194
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  1.5  1.5  0.5    1    3  23.  10. -1.5
+
+ ef-ei =   -2.133 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   1.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.16593  0.0046  0.0258 -0.1659
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  1.5  1.5  0.5    1    4  23.  10. -1.5
+
+ ef-ei =   -1.175 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   1.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.42352  0.0299  0.0557 -0.4235
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  1.5  1.5  0.5    1    5  23.  10. -1.5
+
+ ef-ei =   -0.961 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   1.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.18936  0.0060  0.0617 -0.1894
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  1.5  1.5  0.5    1    6  23.  10. -1.5
+
+ ef-ei =   -0.080 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   1.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.02567  0.0001  0.0618  0.0257
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  1.5  1.5  0.5    1    7  23.  10. -1.5
+
+ ef-ei =    0.394 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   1.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.03716  0.0002  0.0620  0.0372
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  1.5  1.5  0.5    1    8  23.  10. -1.5
+
+ ef-ei =    1.100 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   1.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.42191  0.0297  0.0917 -0.4219
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  1.5  1.5  0.5    1    9  23.  10. -1.5
+
+ ef-ei =    1.589 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   1.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.11072  0.0020  0.0937 -0.1107
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  1.5  1.5  0.5    1   10  23.  10. -1.5
+
+ ef-ei =    1.875 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   1.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.06537  0.0007  0.0945  0.0654
+  ( using bb2705_3703.obd           from user's area )
+
+ obtd not found for ni,nf,xltrd =    1.00  11.00   1.00   2.50   1.50
+
+ (previous input option = gt     )   new option (ex to exit) : 
+ xl,iobtd( 0),iexp,ipl,ipen (default value) (x=h for help)
+
+ xji,xjf,xti,xtf,xtz,(ef,ei or ef-ei)
+ defaults =    0.0   0.0      0.0   0.0     -1.5    0.000    0.000
+
+          (in.lt.0 will loop from 1 to -in) (-9999 for all)
+ input for iobtd = 6,7,8,9
+ in = state number
+ in = -1 will include all states
+ in < -1 will loop from 1 to -in
+ in = 0 will take the values from the previous input
+ ip = parity (1/-1)
+ ic = mass of model space core
+ (iobtd.eq.6)        im = model-space-interaction code
+ (iobtd.eq.7,8,9,11) im = interaction-model-space code
+ (iobtd.eq.10)    name = full *.obd name
+
+ ini,inf,ipi,ipf,ic,name   defaults =    1   1   1   1  16                     
+  ( using bb2705_3705.obd           from user's area )
+
+ l =  0  electric        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    1  23.  10. -1.5
+
+ ef-ei =   -7.561 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.00000  0.0000  0.0945 -0.0000
+
+ l =  0  electric        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    2  23.  10. -1.5
+
+ ef-ei =   -4.210 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.00000  0.0000  0.0945 -0.0000
+
+ l =  0  electric        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    3  23.  10. -1.5
+
+ ef-ei =   -2.538 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.00000  0.0000  0.0945 -0.0000
+
+ l =  0  electric        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    4  23.  10. -1.5
+
+ ef-ei =   -2.166 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.00002  0.0000  0.0945  0.0000
+
+ l =  0  electric        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    5  23.  10. -1.5
+
+ ef-ei =   -1.262 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.00001  0.0000  0.0945 -0.0000
+
+ l =  0  electric        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    6  23.  10. -1.5
+
+ ef-ei =   -1.195 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.00001  0.0000  0.0945  0.0000
+
+ l =  0  electric        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    7  23.  10. -1.5
+
+ ef-ei =   -0.911 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.00003  0.0000  0.0945  0.0000
+
+ l =  0  electric        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    8  23.  10. -1.5
+
+ ef-ei =   -0.120 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.00007  0.0000  0.0945  0.0001
+
+ l =  0  electric        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    9  23.  10. -1.5
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -4.24264  3.0000  3.0944 -4.2426
+
+ l =  0  electric        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1   10  23.  10. -1.5
+
+ ef-ei =    0.553 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.00001  0.0000  3.0944  0.0000
+  ( using bb2705_3705.obd           from user's area )
+
+ obtd not found for ni,nf,xltrd =    1.00  11.00   0.00   2.50   2.50
+
+ (previous input option = gt     )   new option (ex to exit) : 
+ xl,iobtd( 0),iexp,ipl,ipen (default value) (x=h for help)
+
+ xji,xjf,xti,xtf,xtz,(ef,ei or ef-ei)
+ defaults =    0.0   0.0      0.0   0.0     -1.5    0.000    0.000
+
+          (in.lt.0 will loop from 1 to -in) (-9999 for all)
+ input for iobtd = 6,7,8,9
+ in = state number
+ in = -1 will include all states
+ in < -1 will loop from 1 to -in
+ in = 0 will take the values from the previous input
+ ip = parity (1/-1)
+ ic = mass of model space core
+ (iobtd.eq.6)        im = model-space-interaction code
+ (iobtd.eq.7,8,9,11) im = interaction-model-space code
+ (iobtd.eq.10)    name = full *.obd name
+
+ ini,inf,ipi,ipf,ic,name   defaults =    1   1   1   1  16                     
+  ( using bb2705_3705.obd           from user's area )
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    1  23.  10. -1.5
+
+ ef-ei =   -7.561 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.29509  0.0145  3.1090 -0.2951
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    2  23.  10. -1.5
+
+ ef-ei =   -4.210 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.03785  0.0002  3.1092  0.0379
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    3  23.  10. -1.5
+
+ ef-ei =   -2.538 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.28149  0.0132  3.1224 -0.2815
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    4  23.  10. -1.5
+
+ ef-ei =   -2.166 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.09221  0.0014  3.1238 -0.0922
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    5  23.  10. -1.5
+
+ ef-ei =   -1.262 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    1.47739  0.3638  3.4876  1.4774
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    6  23.  10. -1.5
+
+ ef-ei =   -1.195 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -1.05187  0.1844  3.6720 -1.0519
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    7  23.  10. -1.5
+
+ ef-ei =   -0.911 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.66765  0.0743  3.7463  0.6676
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    8  23.  10. -1.5
+
+ ef-ei =   -0.120 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.43845  0.0320  3.7783  0.4384
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1    9  23.  10. -1.5
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -1.14174  0.2173  3.9956 -1.1417
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  2.5  1.5  0.5    1   10  23.  10. -1.5
+
+ ef-ei =    0.553 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   2.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.61783  0.0636  4.0592  0.6178
+  ( using bb2705_3705.obd           from user's area )
+
+ obtd not found for ni,nf,xltrd =    1.00  11.00   1.00   2.50   2.50
+
+ (previous input option = gt     )   new option (ex to exit) : 
+ xl,iobtd( 0),iexp,ipl,ipen (default value) (x=h for help)
+
+ xji,xjf,xti,xtf,xtz,(ef,ei or ef-ei)
+ defaults =    0.0   0.0      0.0   0.0     -1.5    0.000    0.000
+
+          (in.lt.0 will loop from 1 to -in) (-9999 for all)
+ input for iobtd = 6,7,8,9
+ in = state number
+ in = -1 will include all states
+ in < -1 will loop from 1 to -in
+ in = 0 will take the values from the previous input
+ ip = parity (1/-1)
+ ic = mass of model space core
+ (iobtd.eq.6)        im = model-space-interaction code
+ (iobtd.eq.7,8,9,11) im = interaction-model-space code
+ (iobtd.eq.10)    name = full *.obd name
+
+ ini,inf,ipi,ipf,ic,name   defaults =    1   1   1   1  16                     
+  ( using bb2705_3707.obd           from user's area )
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  3.5  1.5  0.5    1    1  23.  10. -1.5
+
+ ef-ei =   -5.791 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   3.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.09174  0.0014  4.0606 -0.0917
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  3.5  1.5  0.5    1    2  23.  10. -1.5
+
+ ef-ei =   -3.298 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   3.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.15092  0.0038  4.0644  0.1509
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  3.5  1.5  0.5    1    3  23.  10. -1.5
+
+ ef-ei =   -2.715 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   3.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.41374  0.0285  4.0929  0.4137
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  3.5  1.5  0.5    1    4  23.  10. -1.5
+
+ ef-ei =   -1.468 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   3.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.69353  0.0802  4.1731 -0.6935
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  3.5  1.5  0.5    1    5  23.  10. -1.5
+
+ ef-ei =   -0.553 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   3.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.35817  0.0214  4.1945 -0.3582
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  3.5  1.5  0.5    1    6  23.  10. -1.5
+
+ ef-ei =   -0.371 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   3.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.64210  0.0687  4.2632  0.6421
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  3.5  1.5  0.5    1    7  23.  10. -1.5
+
+ ef-ei =   -0.170 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   3.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    2.31412  0.8925  5.1557  2.3141
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  3.5  1.5  0.5    1    8  23.  10. -1.5
+
+ ef-ei =    0.068 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   3.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.91006  0.1380  5.2938 -0.9101
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  3.5  1.5  0.5    1    9  23.  10. -1.5
+
+ ef-ei =    0.581 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   3.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2   -0.07837  0.0010  5.2948 -0.0784
+
+ l =  1  magnetic        beta decay matrix elements
+
+ ji,jf,ti,tf,ni,nf,a,z,tz =   2.5  3.5  1.5  0.5    1   10  23.  10. -1.5
+
+ ef-ei =    1.200 MeV
+
+ for a,ji,jf,ti,tf,tzi,tzf =   23.     2.5   3.5     1.5   0.5    -1.5  -0.5
+ iform, m(gt/f), b(gt/f), sum b(gt/f) =  2    0.10337  0.0018  5.2966  0.1034
+  ( using bb2705_3707.obd           from user's area )
+
+ obtd not found for ni,nf,xltrd =    1.00  11.00   1.00   2.50   3.50
+
+ (previous input option = gt     )   new option (ex to exit) :   the output file is dens.dao

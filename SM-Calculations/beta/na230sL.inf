@@ -1,0 +1,23 @@
+ na230   Nucleus
+ s   Interaction code
+  sdpn   Model Space
+           3   No of protons 
+           4   No of neutrons 
+ y  Use same interaction for n,p and np y/n 
+  i  (np) or (i) interactions 
+  na230 Proton Interaction 
+ n  Do you want to apply sp energy truncation y/n 
+ n  Do you want to use DufourZuker truncation y/n 
+ n  Do you wish to truncate mutipolarity of pn interaction y/n 
+    1   11      2   Minumum and Maximum 2*J delta(2*J) 
+ n  Accept y/n 
+    1   11    2   Minumum, Maximum, Delta 2*J p 
+ n  Accept y/n 
+    0   12    2   Minumum, Maximum, Delta 2*J n 
+           0   Parity b +1,0,-1 
+           0   Parity a +1,0,-1 
+           1   Parity of Total Nucleus +1,0,-1 
+          10   No of levels 
+ n  Delete existing .lev files y/n 
+ s  Do you want to use (s)tandard or (t)hick restart Lanczos 
+ y  Do you need to setup basic tables y/n 

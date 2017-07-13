@@ -1,0 +1,5 @@
+! ---------- shell input for bb370b.lpe
+sd                 input *.sp file name
+sdpn               proton-neutron *.sp file name
+usdb               interaction file name
+   6   8   8   3   4   10      1476   number of pn orbitals, inc-core, izc-core, nvp-valence nvn-valence, neig, dim

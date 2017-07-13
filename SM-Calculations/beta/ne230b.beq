@@ -1,0 +1,7 @@
+ne230b               *.bei filename
+ne230b               *.beo filename
+ne230 na230
+sd       usdb    
+  10.,  11.,  23.,    0.000, 0.0, 0.60     ! zi, zf, a, q, exf, 0.60 is the quenching factor
+0.0, 0.0, 0.0                          ! texp(s), percent non-GT, texp-err(s)
+END

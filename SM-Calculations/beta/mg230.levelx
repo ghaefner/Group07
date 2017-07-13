@@ -1,0 +1,27 @@
+! ---------- begin input for mg230.levelx
+L
+mg230
+s
+sdpn      
+  -4
+  -3
+y
+i 
+mg230
+n
+n
+n
+  1 11  2
+n
+  0 12  2
+n
+  1 11  2
+0
+0
+ 1
+  10
+n
+s
+y
+X
+! ---------- end input for mg230.levelx

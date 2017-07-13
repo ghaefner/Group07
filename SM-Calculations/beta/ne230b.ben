@@ -1,0 +1,33 @@
+!                change the file name needed
+open
+gt ,ne230b.bei   
+cp
+ho
+text
+! model space = sd      
+text
+! interaction = usdb    
+!                put ! in the line below if you want more screen output
+cut
+!                change the value of the negative numbers below 
+!                to change the number of initial, final states
+!                change the a,zi and zf values if needed
+az
+ 23, 10, 11
+gp
+gt
+m1,10
+  2.5,  1.5,  1.5,  0.5
+   -1,   -1,  1,  1,0,bb2705_3703
+gt
+e0,10
+  2.5,  2.5,  1.5,  0.5
+    0,    0,  1,  1,0,bb2705_3705
+gt
+m1,10
+  2.5,  2.5,  1.5,  0.5
+    0,    0,  1,  1,0,bb2705_3705
+gt
+m1,10
+  2.5,  3.5,  1.5,  0.5
+    0,    0,  1,  1,0,bb2705_3707

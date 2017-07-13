@@ -1,0 +1,5 @@
+SET TOTALMVECS=119       
+SET DIMENSION=29        
+SET NJT=6         
+SET MVECTORS=26        
+SET PARTITIONS=14        

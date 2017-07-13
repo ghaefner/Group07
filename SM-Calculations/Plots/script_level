@@ -1,10 +1,23 @@
 reset
 
-set xrange [-2.5:10.5]
-set yrange [-0.5:5.5]
+set xrange [-2.5:9.5]
+set yrange [-0.5:6.5]
 
 unset grid
 unset xtics
 unset ytics
+unset key
 
-p 'oxygen' u 1:2 with lines lw 2 lc rgb '#black'
+
+set label at 0.35,6.0 'O-18' font "Computer Modern, 18"
+set label at 7.05,6.0 'O-19' font "Computer Modern, 18"
+
+set label at -1.25,-0.27 'Exp.' font "Computer Modern, 14"
+set label at 0.25,-0.27 'USDA' font "Computer Modern, 14"
+set label at 1.75,-0.27 'USDB' font "Computer Modern, 14"
+set label at 5.25,-0.27 'Exp.' font "Computer Modern, 14"
+set label at 6.75,-0.27 'USDA' font "Computer Modern, 14"
+set label at 8.25,-0.27 'USDB' font "Computer Modern, 14"
+
+
+p 'oxygen' u 1:2 with lines lw 2 lc rgb '#black', ''u 1:2:3 w labels offset -1.2,0.7

@@ -1,0 +1,11 @@
+--------------------------------------------------
+lpe,   0             ! option (lpe or lan), neig (zero=10) 
+sd                   ! model space (*.sp) name (a8)
+n                    ! any restrictions (y/n)
+usdb                 ! interaction (*.int) name (a8)
+ 11                  ! number of protons
+ 23                  ! number of nucleons
+ 0.5, 5.5, 1.0,      ! min J, max J, del J 
+  0                  ! parity (0 for +) (1 for -) (2 for both)
+--------------------------------------------------
+st                   ! option 
