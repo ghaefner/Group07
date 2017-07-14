@@ -10,7 +10,7 @@ def diag(hamiltonian):
     print()
 
     eigs, vecs = np.linalg.eig(H)
-    eigs = np.sort(eigs)
+#    eigs = np.sort(eigs)
         
     np.savetxt(EIGENSPACE_DIR + "eigenvalues.txt", eigs, delimiter=" ")
     np.savetxt(EIGENSPACE_DIR + "eigenvectors.txt", vecs, delimiter=" ")
