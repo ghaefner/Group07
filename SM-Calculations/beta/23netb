@@ -1,0 +1,9 @@
+#!/bin/bash --login
+#PBS -m abe
+#PBS -N 23netb   
+. ~/                    
+export PATH="/usr/local/bin:$PATH"
+cd $PBS_O_WORKDIR
+export OMP_NUM_THREADS=32
+. 23netb.bat   
+qstat -f $PBS_JOBID

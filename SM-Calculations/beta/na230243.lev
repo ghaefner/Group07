@@ -1,0 +1,18 @@
+  NuShellX V4.0 R2.003
+
+  W.D.M. Rae, Garsington, Oxford 2008
+
+  Uses NuShell code by W.D.M. Rae, Garsington, Oxford, UK, 2006/7
+
+   na230s
+
+  NuShellX is a nuclear shellmodel program
+  written in Fortran95 for Windows/Linux. 
+  It is based on NuShell by W D M Rae 2007
+
+  2*J,   2*T           5           1
+
+  Lowest Energy Levels
+
+   -70.351+   -67.000+   -65.328+   -64.956+   -64.052+
+   -63.985+   -63.701+   -62.910+   -62.790+   -62.237+

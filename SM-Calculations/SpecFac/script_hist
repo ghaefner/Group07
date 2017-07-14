@@ -1,0 +1,18 @@
+clear
+reset
+
+unset key
+# Make the x axis labels easier to read.
+set xtics rotate out
+# Select histogram data
+set style data histogram
+# Give the bars a plain fill pattern, and draw a solid line around them.
+set style fill solid border
+
+set xlabel 'Orbit'
+set ylabel '# Holes'
+set title 'Sumrule vs. occupation number'
+
+set style histogram clustered
+
+plot for [COL=2:3] 'sumrule2' using COL:xticlabels(1)

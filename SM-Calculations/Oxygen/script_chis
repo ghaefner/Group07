@@ -1,0 +1,12 @@
+reset
+
+
+set title '{/Symbol c}^2 for the first 3 excited states in the sd shell'
+set xlabel 'Massnumber A'
+set ylabel '{/Symbol c}^2'
+
+set xrange [16:24]
+
+set logscale y
+
+p 'chisquare' u 1:2 pt 7 ps 2 t 'Oxygen,USDA', 'chisquare' u 1:3 pt 9 ps 2 t 'Oxygen,USDB', 'chisquare' u 1:4 pt 7 ps 2 t 'Flourine,USDA', 'chisquare' u 1:5 pt 9 ps 2 t 'Flourine,USDB'

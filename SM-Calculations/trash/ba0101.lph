@@ -1,5 +1,0 @@
-! ---------- shell input for ba0101.lpe
-sd                 input *.sp file name
-sdpn               proton-neutron *.sp file name
-usda               interaction file name
-   6   8   8   0   1   10         1   number of pn orbitals, inc-core, izc-core, nvp-valence nvn-valence, neig, dim

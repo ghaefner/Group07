@@ -1,0 +1,13 @@
+--------------------------------------------------
+den                  ! option 
+t                    ! 1, 2 or t
+bb2705               ! initial file name (default from lpe above)
+   1                 ! max number (-1 for all)
+bb3701               ! final file name (default = from lpe above)
+  -1                 ! max number (-1 for all)
+ 2.5, 0.0, 1.0,      ! min, max J, del J for bb2705
+ 1.5, 3.5, 1.0,      ! min, max J, del J for bb3701
+y                    ! restrict coupling for operator
+ 0.0, 1.0,           ! min,max delta-J for operator
+--------------------------------------------------
+st                   ! option 

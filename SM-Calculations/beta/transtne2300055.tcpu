@@ -1,0 +1,20 @@
+  NuShellX V4.0 R2.003
+
+  W.D.M. Rae, Garsington, Oxford 2008
+
+  Uses NuShell code by W.D.M. Rae, Garsington, Oxford, UK, 2006/7
+
+
+  To get help messages use switch help ie run `NuShellX help`.
+
+  (M)odel,(L)evels,(O)ver,(T)rans,(Z)uker,E(x)it 
+  Initial State
+  Nucleus   Neutron a or b code   Interaction code   2*Jmin, 2*Jmax, 2*dJ, Na, Nb   Final State
+  Nucleus   Neutron a or b code   Interaction code   2*Jmin, 2*Jmax, 2*dJ, Na, Nb   Name for transition files  xxx na230
+  Operator acting on a particles in initial Nucleus   a+
+  Operator acting on b particles in initial Nucleus   a-
+  The operators are coupled to Jop.
+  Operator Mimimum and maximum 2*Jop   Number of states ni nf   Change wavefunctions to + at infinity y/n   Data saved to  na230.me
+
+  (M)odel,(L)evels,(O)ver,(T)rans,(Z)uker,E(x)it 
+  Command file shellx.bat saved to disk.
