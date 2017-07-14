@@ -4,8 +4,16 @@
 # .orig files
 *.orig
 
+
 # Standard output of GUMShell
+jvalues.txt
 basis.txt
+basis_truncated.txt
 Hamiltonian.txt
 eigenvalues.txt
 eigenvectors.txt
+eigenvalues*.txt
+
+#trash SM-Calc stuff
+trash/
+spdf/
