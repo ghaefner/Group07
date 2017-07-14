@@ -11,8 +11,6 @@ def diag(hamiltonian):
 
     eigs, vecs = np.linalg.eig(H)
     eigs = np.sort(eigs)
-#    for i in range(30):
-#    	print(np.sort(eigs)[i])
         
     np.savetxt(EIGENSPACE_DIR + "eigenvalues.txt", eigs, delimiter=" ")
     np.savetxt(EIGENSPACE_DIR + "eigenvectors.txt", vecs, delimiter=" ")

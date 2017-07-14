@@ -13,7 +13,10 @@ Hamiltonian.txt
 eigenvalues.txt
 eigenvectors.txt
 eigenvalues*.txt
+<<<<<<< HEAD
 
 #trash SM-Calc stuff
 trash/
 spdf/
+=======
+>>>>>>> 4487176463dc040134abc78b64a2c398a0826589
