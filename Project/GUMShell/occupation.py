@@ -9,7 +9,7 @@ print(evalues[4])
 x = []
 y = []
 
-ev = 0
+ev = 4
 norm = 0.
 
 for i in range(len(evectors[ev])):
@@ -20,6 +20,6 @@ for i in range(len(evectors[ev])):
 print(norm)
 
 plt.xlabel(r"ID of Slater determinant $| \Phi_i \rangle$")
-plt.ylabel(r"$\langle \Phi_i | 0^+_1 \rangle$")
+plt.ylabel(r"$|\langle \Phi_i | 0^+_2 \rangle|^2$")
 
 plt.plot(x,y, color="black")
