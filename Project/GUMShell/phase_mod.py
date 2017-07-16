@@ -48,8 +48,6 @@ def bandp(p, q, r, s, N, a):
 
     return(phase, b)
 
-
-
 def J_plus(p, tj, tm, N, a, sp, n_sp):
 
     point = 0

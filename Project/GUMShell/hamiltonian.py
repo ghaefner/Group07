@@ -2,6 +2,7 @@ import numpy as np
 #from phase import bandp
 #from phase2 import Jcalc
 from phase_mod import bandp
+import time
 
 HAMILTONIAN_DIR = "hamiltonian/"
 
@@ -43,31 +44,28 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
 
     mass_factor = (18./(16.+n_particles))**(1./3.)
 	
+    START = time.time()
+    
     H = np.zeros((basis_size, basis_size))
-
+                                                
     for alpha in range(basis_size):
-        for p in range(1, n_sp + 1):
-            for q in range(p + 1, n_sp + 1):
-                for r in basis[alpha][:-1]:
-                    for s in basis[alpha][:-1]:
-                        for tb in tbme:
-                            if (tb[0] == p and tb[1] == q and tb[2] == r and tb[3] == s):
-                                if tb[4] == 0.:
-                                    continue
-                                else:
-                                    phi, b = bandp(p, q, r, s, n_particles, list(basis[alpha][:n_particles]))
-                                    if phi == 0:
-                                        continue
-                                    else:
-                                        for beta in range(basis_size):
-                                            if(len(basis[beta][:n_particles]) != len(b)):
-                                                print("Error: hamiltonian.py: Vector dimensions not matching")
-                                                exit(0)
-                                            
-                                            #if basis[beta][:n_particles] == b:
-                                            if (basis[beta][:n_particles] == b).all():
-                                                H[alpha][beta] += phi*tb[4]*mass_factor
-                                                H[beta][alpha] = H[alpha][beta]
+        for tb in tbme:
+            if (tb[2] in basis[alpha][:n_particles]) and (tb[3] in basis[alpha][:n_particles]):
+            
+                phi, b = bandp(tb[0], tb[1], tb[2], tb[3], n_particles, list(basis[alpha][:n_particles]))
+                if phi == 0:
+                    continue
+                else:
+                    for beta in range(basis_size):
+                        if(len(basis[beta][:n_particles]) != len(b)):
+                            print("Error: hamiltonian.py: Vector dimensions not matching")
+                            exit(0)
+                        
+                        #if basis[beta][:n_particles] == b:
+                        if (basis[beta][:n_particles] == b).all():
+                            H[alpha][beta] += phi*tb[4]*mass_factor
+                            H[beta][alpha] = H[alpha][beta]
+                            break
 
     for alpha in range(basis_size):
         spme = 0.
@@ -77,6 +75,10 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
     
         H[alpha][alpha] += spme
     spme = 0.
+    
+    STOP = time.time()
+    
+    print("Calculation of Hamiltonian took ", STOP - START, "seconds")
     
     np.savetxt(HAMILTONIAN_DIR + "Hamiltonian.txt", H, delimiter = " ")
 
