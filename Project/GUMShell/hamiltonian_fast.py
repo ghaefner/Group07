@@ -58,28 +58,24 @@ for alpha in range(basis_size):
     for tb in tbme:
         if (tb[2] in basis[alpha][:n_particles]) and (tb[3] in basis[alpha][:n_particles]):
         
-#            phi, b = bandp(tb[0], tb[1], tb[2], tb[3], n_particles, list(basis[alpha][:n_particles]))
-            phi, b = adadaa(tb[0], tb[1], tb[2], tb[3], n_particles, list(basis[alpha][:n_particles]))
+            phi, b = bandp(tb[0], tb[1], tb[2], tb[3], n_particles, list(basis[alpha][:n_particles]))
+            phi2, b2 = adadaa(tb[0], tb[1], tb[2], tb[3], n_particles, list(basis[alpha][:n_particles]))
            
-#            print("a^+_p a^+_q a_r a_s | Psi > = ", tb[0], " ", tb[1], " ", tb[2], " ", tb[3], " * ", basis[alpha][:n_particles])
-#            print("Old result = new result ? -> ", phi, " == ", phi2, "?\t", b, " == ", b2, "?")
-#
-#            if phi != phi2:
-#                print("Failure!: phi != phi2!")
-#                break
-#                
-#            if (b != b2).all():
-#                print("Failure!: b != b2!")
-#                break
+            print("a^+_p a^+_q a_r a_s | Psi > = ", tb[0], " ", tb[1], " ", tb[2], " ", tb[3], " * ", basis[alpha][:n_particles])
+            print("Old result = new result ? -> ", phi, " == ", phi2, "?\t", b, " == ", b2, "?")
+
+            if phi != phi2:
+                print("Failure!: phi != phi2!")
+                break
+                
+            if (b != b2).all():
+                print("Failure!: b != b2!")
+                break
             
             if phi == 0:
                 continue
             else:
-                for beta in range(basis_size):
-                    if(len(basis[beta][:n_particles]) != len(b)):
-                        print("Error: hamiltonian.py: Vector dimensions not matching")
-                        exit(0)
-                    
+                for beta in range(basis_size):                    
                     if (basis[beta][:n_particles] == b).all():
                         H[alpha][beta] += phi*tb[4]*mass_factor
                         H[beta][alpha] = H[alpha][beta]
