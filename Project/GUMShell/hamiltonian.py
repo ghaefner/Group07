@@ -1,6 +1,5 @@
 import numpy as np
 from phase_mod import adadaa
-import time
 
 HAMILTONIAN_DIR = "hamiltonian/"
 
@@ -32,8 +31,6 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
 
     mass_factor = (18./(16.+n_particles))**(0.3)
 	
-    START = time.time()
-    
     H = np.zeros((basis_size, basis_size))
 
     for alpha in range(basis_size):
@@ -59,10 +56,6 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
     
         H[alpha][alpha] += spe
     spe = 0.
-    
-    STOP = time.time()
-    
-    print("Calculation of Hamiltonian took ", STOP - START, "seconds")
     
     np.savetxt(HAMILTONIAN_DIR + "Hamiltonian.txt", H, delimiter = " ")
 
