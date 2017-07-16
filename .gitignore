@@ -5,7 +5,7 @@
 *.orig
 
 # Code for testing purposes
-hamiltonian_fast.py
+#hamiltonian_fast.py
 
 # Compiled python code
 __pycache__/*
