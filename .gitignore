@@ -13,6 +13,8 @@ __pycache__/*
 # Standard output of GUMShell
 jvalues.txt
 basis.txt
+basis_bit.txt
+basis_bit.bin
 basis_truncated.txt
 Hamiltonian.txt
 eigenvalues.txt
