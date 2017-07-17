@@ -1,9 +1,11 @@
 import numpy as np
 
 BASIS_DIR = "basis/"
+ORBITAL_DIR = "space/"
 
 # If WRITE_TEXTFILE is False, the basis will only be written to a binary file
 WRITE_TEXTFILE = True
+VERBOSE = False
 
 def mscheme(orbitalfile, n_neutrons, n_protons):
 
@@ -22,7 +24,7 @@ def mscheme(orbitalfile, n_neutrons, n_protons):
     M = 3
     T = 4
         
-    orbitals = np.loadtxt("space/0s1s2s3s_np.txt")
+    orbitals = np.loadtxt(ORBITAL_DIR + orbitalfile)
     
     n_states_tot = np.shape(orbitals)[0]
     
@@ -173,48 +175,46 @@ def mscheme(orbitalfile, n_neutrons, n_protons):
                 basis_np.append(n + p)
                 
     # Create arrays to store bit representations and total M quantum numbers
-    basis_np_bit = np.zeros(np.shape(basis_np)[0])
-    M_values = np.zeros(np.shape(basis_np)[0])
-    
-    print("Listing basis states and their 2*M quantum number")
-    print()
-    for i in range(n_neutrons):
-        print("2*M", i + 1, "(n)\t", end="")
-    for i in range(n_neutrons):
-        print("2*M", i + 1, "(p)\t", end="")
-    print("2*M")
-    print()
-    
-    bit_rep = 0
-    
+    basis_np_bit = np.zeros(np.shape(basis_np)[0], dtype=np.int32)
+    M_values = np.zeros(np.shape(basis_np)[0], dtype=np.int32)
+
+    if VERBOSE:    
+        print("Listing basis states and their 2*M quantum number")
+        print()
+        for i in range(n_neutrons):
+            print("2*M", i + 1, "(n)\t", end="")
+        for i in range(n_neutrons):
+            print("2*M", i + 1, "(p)\t", end="")
+        print("2*M")
+        print()
+        
     for i in range(np.shape(basis_np)[0]):
         for j in range(n_nucleons):
             M_values[i] += orbitals[basis_np[i][j] - 1][M]
             basis_np_bit[i] += 2**(orbitals[basis_np[i][j] - 1][ID] - 1)
-            
-            print(basis_np[i][j], "\t", end="")
-        print(M_values[i])
-        print("Bit representation:", bin(int(basis_np_bit[i])))
-    print()
+            if VERBOSE:
+                print(basis_np[i][j], "\t", end="")
+        if VERBOSE:
+            print(M_values[i])
+            print("Bit representation:", bin(int(basis_np_bit[i])))
         
     ###############################################################################
     # Calculate the number of allowed J-values and print them
     ###############################################################################
-    	
-    print("2*M\tD(2*J)\td(2*M)")
+
+    if VERBOSE:    	
+        print("2*M\tD(2*J)\td(2*M)")
     
-    M_values_unique, M_values_frequency = np.unique(M_values, return_counts=True)
-    	
-    #M_values = np.sort(M_values)
-    
-    for i in range(np.shape(M_values_unique)[0]):
-        if M_values_unique[i] >= 0:
-            if i == np.shape(M_values_unique)[0] - 1:
-                print(M_values_unique[i], "\t", M_values_frequency[i], "\t", M_values_frequency[i])
-                break
-            print(M_values_unique[i], "\t", end="")
-            print(M_values_frequency[i] - M_values_frequency[i + 1], "\t", end="")
-            print(M_values_frequency[i])
+        M_values_unique, M_values_frequency = np.unique(M_values, return_counts=True)
+        	        
+        for i in range(np.shape(M_values_unique)[0]):
+            if M_values_unique[i] >= 0:
+                if i == np.shape(M_values_unique)[0] - 1:
+                    print(M_values_unique[i], "\t", M_values_frequency[i], "\t", M_values_frequency[i])
+                    break
+                print(M_values_unique[i], "\t", end="")
+                print(M_values_frequency[i] - M_values_frequency[i + 1], "\t", end="")
+                print(M_values_frequency[i])
             
     ###############################################################################
     # Write basis states in odometric representation to a file
@@ -282,12 +282,15 @@ def mscheme(orbitalfile, n_neutrons, n_protons):
     
     # Output as a true binary file
     
-    basis_np_bit.tofile(BASIS_DIR + "basis_bit.bin")
+#    basis_np_bit.tofile(BASIS_DIR + "basis_bit.bin")
+    np.save(BASIS_DIR + "basis_bit", basis_np_bit)
+    print(basis_np_bit)
     
+
     print()
     print("mscheme_bits.py: Saved basis of Slater determinants in bit representation to '" + BASIS_DIR + "basis_bit.bin'")
     print()
     
 # For testing uncomment the following lines:
-# orbitalfile = "space/0s1s2s3s_np.txt"
-# mscheme(orbitalfile, 4, 4)
+orbitalfile = "sd_np.txt"
+mscheme(orbitalfile, 4, 0)

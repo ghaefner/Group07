@@ -15,6 +15,7 @@ jvalues.txt
 basis.txt
 basis_bit.txt
 basis_bit.bin
+basis_bit.npy
 basis_truncated.txt
 Hamiltonian.txt
 eigenvalues.txt
