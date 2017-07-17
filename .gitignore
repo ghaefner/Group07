@@ -4,6 +4,11 @@
 # .orig files
 *.orig
 
+# Code for testing purposes
+#hamiltonian_fast.py
+
+# Compiled python code
+__pycache__/*
 
 # Standard output of GUMShell
 jvalues.txt
@@ -13,10 +18,7 @@ Hamiltonian.txt
 eigenvalues.txt
 eigenvectors.txt
 eigenvalues*.txt
-<<<<<<< HEAD
 
 #trash SM-Calc stuff
 trash/
 spdf/
-=======
->>>>>>> 4487176463dc040134abc78b64a2c398a0826589
