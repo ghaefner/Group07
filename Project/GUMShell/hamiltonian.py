@@ -30,10 +30,12 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
     tbme = np.loadtxt(twoparticle)
 
     mass_factor = (18./(16.+n_particles))**(0.3)
-	
+
     H = np.zeros((basis_size, basis_size))
 
     for alpha in range(basis_size):
+#        if alpha == 10:
+#            break
         for tb in tbme:
             if (tb[2] in basis[alpha][:n_particles]) and (tb[3] in basis[alpha][:n_particles]):
             
@@ -45,22 +47,25 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
                     for beta in range(0, alpha + 1):
                         if (basis[beta][:n_particles] == b).all():
                             H[alpha][beta] += phi*tb[4]*mass_factor
+                            print("Adding ", phi*tb[4]*mass_factor, " to [", alpha, "][", beta, "], phi = ", phi)
                             H[beta][alpha] = H[alpha][beta]
                             break
 
     for alpha in range(basis_size):
         spe = 0.
-    
+
         for i in range(n_particles):
             spe += obme[int(basis[alpha][i])-1][4]
     
         H[alpha][alpha] += spe
     spe = 0.
     
+    print(H)
+    
     np.savetxt(HAMILTONIAN_DIR + "Hamiltonian.txt", H, delimiter = " ")
 
     print()
-    print("hamiltonian.py: Saved Hamiltonian matrix to '", HAMILTONIAN_DIR, "Hamiltonian.txt'")
+    print("hamiltonian.py: Saved Hamiltonian matrix to '", HAMILTONIAN_DIR + "Hamiltonian.txt'")
     print()
 
-#hamiltonian("output/basis.txt", "interaction/sd_sp.int", "interaction/usdb_m.int", "space/sd.sp")
+hamiltonian("output/basis.txt", "interaction/sd_sp.int", "interaction/usdb_m.int", "space/sd.sp")

@@ -18,6 +18,7 @@ basis_bit.bin
 basis_bit.npy
 basis_truncated.txt
 Hamiltonian.txt
+Hamiltonian_bit.txt
 eigenvalues.txt
 eigenvectors.txt
 eigenvalues*.txt

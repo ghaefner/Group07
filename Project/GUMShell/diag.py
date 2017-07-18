@@ -1,6 +1,7 @@
 import numpy as np
 
 EIGENSPACE_DIR = "eigenspace/"
+HAMILTONIAN_DIR = "hamiltonian/"
 
 def diag(hamiltonian):
     H = np.loadtxt(hamiltonian)
@@ -14,8 +15,13 @@ def diag(hamiltonian):
         
     np.savetxt(EIGENSPACE_DIR + "eigenvalues.txt", eigs, delimiter=" ")
     np.savetxt(EIGENSPACE_DIR + "eigenvectors.txt", vecs, delimiter=" ")
+    
+    print(eigs)
 
     print()
     print("diag.py: Saved Eigenvalues to '" + EIGENSPACE_DIR + "eigenvalues.txt")
     print("diag.py: Saved Eigenvectors to '" + EIGENSPACE_DIR + "eigenvectors.txt")
     print()
+
+diag(HAMILTONIAN_DIR + "Hamiltonian.txt")
+diag(HAMILTONIAN_DIR + "Hamiltonian_bit.txt")
