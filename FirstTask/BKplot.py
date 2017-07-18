@@ -76,7 +76,7 @@ ax = fig.add_subplot(111, projection='3d')
 
 ax.set_xlabel('Z')
 ax.set_ylabel('N')
-ax.set_zlabel('delta MS(Z,N_N-2) / delta LD(A_A-2)  [fm]')
+ax.set_zlabel('delta MS(Z,N_N-2) / delta LD(A_A-2)')
 
 ax.set_xlim(60, 65)
 ax.set_ylim(70, 110)
