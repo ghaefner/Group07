@@ -1,0 +1,17 @@
+--------------------------------------------------------------------------------
+gamma decay for o_230b.deo       BR greater than  0.000
+
+! model space = sd                                          
+! interaction = usdb                                        
+! e_p =   1.360    e_n =   0.450   E2                       
+! g_sp =  5.000    g_sn = -3.440  M1 spin                   
+! g_lp =  1.174    g_ln = -0.110  M1 orbital                
+! g_pp =  0.240    g_pn = -0.160  M1 tensor                 
+
+      Ei       Ji   ni        T_(1/2)        width      M1 moment   Q moment
+    (MeV)                     (psec)          (eV)        (u_N)    (e^2 fm^2)
+
+    0.000    1/2+    1       0.000000   -0.0000E+00     -1.052         0.00  ---------------------- 
+                                                                                                    
+             Ef      Jf   nf    BR      Eg        del    B(1)        B(2)            A_p      A_n   
+                                                                                                    

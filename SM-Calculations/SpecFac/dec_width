@@ -1,7 +1,12 @@
 O-25 J=3/2+
-gamma = 0.22176 MeV
+gamma = 0.22176 MeV  1.45974
 C²S = 
 
 O-23 J=5/2+
 C²S = 0.0590
-gamma = 
+gamma = 1.12093  1.10226  || MOST LIKELY THIS ONE: 1.26887
+
+--> Neutron decay width = 74,9 keV
+
+Experiment: 100 keV width 
+			23-O at 2.79(13) MeV

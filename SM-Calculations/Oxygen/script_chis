@@ -1,11 +1,12 @@
 reset
 
 
-set title '{/Symbol c}^2 for the first 3 excited states in the sd shell'
-set xlabel 'Massnumber A'
-set ylabel '{/Symbol c}^2'
+#set title '{/Symbol c}^2 for the first 3 excited states in the sd shell' font "Computer Modern, 16"
+set xlabel 'Massnumber A' font "Computer Modern, 14"
+set ylabel '{/Symbol c}^2' font "Computer Modern, 14"
 
 set xrange [16:24]
+set key box
 
 set logscale y
 

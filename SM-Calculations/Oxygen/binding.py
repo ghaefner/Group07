@@ -2,6 +2,8 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
 
 #Load in data
 data = np.loadtxt("bindingenergies.dat")
@@ -11,12 +13,27 @@ zet = data[:,0]
 x = data[:,2] # Massnumber
 bexpt = data[:,3]
 liquid_drop = data[:,4]
+diff_be = data[:,5]
+n = [data[:,2] - [data[:,0]]] # Neutron number
+
 '''
+#Plot the Differences in BE
+fig = plt.figure(figsize=(6,6))
+ax = fig.add_subplot(111)
+ax.set_xlabel("Neutron number")
+ax.set_ylabel("Proton number")
+ax.grid(True,linestyle='-',color='0.75')
+#plt.zscale('log')
+ax.set_xlim([0,20])
+ax.set_ylim([0,20])
+ax.scatter(n,zet,c=diff_be,marker='o',cmap = cm.jet)
+plt.show()
+
 #Plot for binding energies
-plt.plot(x,bexpt, 'b-', x, liquid_drop, 'r-')
-plt.axis([0,270,-1,10.0])
+plt.plot(x,bexpt, 'o', x, liquid_drop, 'o')
+plt.axis([0,20,-1,10.0])
 plt.xlabel(r'A')
-plt.ylabel(r'Binding energies [MeV]')
+plt.ylabel(r'Binding energies per nucleon [MeV]')
 plt.legend(('Experiment','Liquid Drop'),loc='upper right')
 plt.title('Binding energies per nucleon vs. liquid drop model')
 plt.show()
@@ -55,7 +72,19 @@ mass = usd[:,0]
 usda = usd[:,1]/usd[:,0]
 usdb = usd[:,2]/usd[:,0]
 
-	
+f = open("binding_usd","w")
+
+#Header
+f.write("# N(Z=8)   Binding energies: Exp. | Liquid drop | USDA | USDB")
+f.write("\n")
+for i in range(len(bindings[0])):			
+	f.write(str(mass[i+1]) + " " + str(bindings[1][i]) + " " + str(bindings[2][i]) + " " + str(usda[i+1]) + " " + str(usdb[i+1]))
+	f.write("\n")
+f.close()
+
+print "mass: " + str((mass))
+print "binding: " + str((bindings[0]))
+'''	
 #Plot everything	
 #plt.figure(1)
 #plt.subplot(211)
@@ -66,8 +95,10 @@ usdb = usd[:,2]/usd[:,0]
 #plt.ylabel('Separation energies [MeV]')
 #plt.subplot(212)
 plt.plot(bindings[0],bindings[1],'r-', bindings[0], bindings[2], 'b-', mass, usda, 'o', mass, usdb, '+')
+plt.axis([17.8,24.2,7.,7.9])
+plt.yscale('log')
 plt.legend(('Experiment','Liquid Drop','USDA','USDB'),loc='upper right')
 plt.xlabel('A')
 plt.ylabel('Binding energies [MeV]')
 plt.show()
-
+'''
