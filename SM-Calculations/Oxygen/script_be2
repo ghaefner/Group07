@@ -3,9 +3,14 @@ reset
 wu = 3.6619
 Z0 = 8
 
+set yrange [0:4]
+set xrange [9:19]
+
+set key box
+
 set xlabel 'N (Z=8)' font "Computer Modern, 14"
 set ylabel 'B(E2: 2_1^+ -> 0_1^+) [W.u.]' font "Computer Modern, 14"
 
-unset key
+#unset key
 
-p 'r42_ox' u ($1-Z0):($4/wu) w linespoints pt 9 ps 2 t 'USDB'  
+p 'r42_ox' u ($1-Z0):($4/wu) w linespoints pt 9 ps 2 t 'USDB', 'r42_ox' u ($1-Z0):5:6 w yerrorbars pt 3 ps 2 t 'Exp.'
