@@ -1,5 +1,0 @@
-! ---------- shell input for bb4705.lpe
-sd                 input *.sp file name
-sdpn               proton-neutron *.sp file name
-usdb               interaction file name
-   6   8   8   4   3   10      2361   number of pn orbitals, inc-core, izc-core, nvp-valence nvn-valence, neig, dim

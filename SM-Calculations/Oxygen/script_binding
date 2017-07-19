@@ -1,0 +1,18 @@
+reset
+
+#set title 'Binding energies for oxygen isotopes'
+
+set xlabel 'N (Z=8)' font "Computer Modern, 14"
+set ylabel 'Binding energy per nucleon [MeV]' font "Computer Modern, 14"
+
+set xrange [9.5:17.5]
+set yrange [7.:8.]
+
+set logscale y
+set key font "Computer Modern, 12"
+set key box
+
+
+Z0 = 8
+
+p 'binding_usd' u ($1-Z0):2 pt 7 ps 2 t 'Experiment' , 'binding_usd' u ($1-Z0):3 w l t 'Liquid drop', 'binding_usd' u ($1-Z0):4 pt 9 ps 2 t 'USDA', 'binding_usd' u ($1-Z0):5 pt 8 ps 2 t 'USDB'

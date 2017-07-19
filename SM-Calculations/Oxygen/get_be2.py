@@ -13,7 +13,7 @@ for i in range(len(transitions[0])):
 	if transitions[0][i] == 2 and transitions[1][i] == 1 and transitions[2][i] == 2:
 		BE2_sum += (((transitions[3][i])**2)/(2*transitions[4][i] + 1))
 
-BE2_sum_WU = BE2 / factor	
+BE2_sum_WU = BE2_sum / factor	
 	
-print(str(BE2) + " e^2fm^4")
-print(str(BE2_WU) + "  W.u.")
+print(str(BE2_sum) + " e^2fm^4")
+print(str(BE2_sum_WU) + "  W.u.")

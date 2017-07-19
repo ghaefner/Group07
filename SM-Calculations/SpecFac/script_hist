@@ -10,8 +10,8 @@ set style data histogram
 set style fill solid border
 
 set xlabel 'Orbit'
-set ylabel '# Holes'
-set title 'Sumrule vs. occupation number'
+set ylabel '(2j+1) - <n_k>'
+#set title 'Sumrule vs. occupation number'
 
 set style histogram clustered
 
