@@ -34,8 +34,8 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
     H = np.zeros((basis_size, basis_size))
 
     for alpha in range(basis_size):
-#        if alpha == 10:
-#            break
+        if alpha == 20:
+            break
         for tb in tbme:
             if (tb[2] in basis[alpha][:n_particles]) and (tb[3] in basis[alpha][:n_particles]):
             
