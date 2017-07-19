@@ -1,0 +1,11 @@
+reset
+
+wu = 3.6619
+Z0 = 8
+
+set xlabel 'N (Z=8)' font "Computer Modern, 14"
+set ylabel 'B(E2: 2_1^+ -> 0_1^+) [W.u.]' font "Computer Modern, 14"
+
+unset key
+
+p 'r42_ox' u ($1-Z0):($4/wu) w linespoints pt 9 ps 2 t 'USDB'  
