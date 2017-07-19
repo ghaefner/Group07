@@ -1,0 +1,19 @@
+reset
+
+wu = 3.6619 #weisskopf unit
+
+Z0 = 8
+
+set yrange [1:4]
+
+set key box
+set key box left
+
+#unset key
+set xlabel 'N (Z=8)' font "Computer Modern, 14"
+set ylabel 'E(4_1^+) / E_(2_1^+)' font "Computer Modern, 14"
+
+y0 = 2
+y1 = 3.333333
+
+p 'r42_ox' u ($1-Z0):2 w linespoints pt 9 ps 2 t 'USDB',  y0 t 'Vibrator', y1 t 'Rigid Rotor'
