@@ -1,0 +1,5 @@
+ORBITAL_DIR = "space/"
+BASIS_DIR = "basis/"
+INTERACTION_DIR = "interaction/"
+HAMILTONIAN_DIR = "hamiltonian/"
+EIGENSPACE_DIR = "eigenspcae/"

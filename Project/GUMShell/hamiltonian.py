@@ -1,20 +1,21 @@
 import numpy as np
 from phase_mod import adadaa
 
-HAMILTONIAN_DIR = "hamiltonian/"
+from config import BASIS_DIR
+from config import INTERACTION_DIR
+from config import HAMILTONIAN_DIR
 
-def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
+def hamiltonian(basisfile, onebodyfile, twobodyfile, orbitalfile):
 
     print()
     print("hamiltonian.py: Calculating the Hamiltonian matrix with the following input:")
-    print("\torbitals = ", orbitals)
-    print("\tbasis = ", basisfile)
-    print("\toneparticle = ", oneparticle)
-    print("\ttwoparticle = ", twoparticle)
+    print("\tbasis = ", BASIS_DIR + basisfile)
+    print("\toneparticle = ", INTERACTION_DIR + onebodyfile)
+    print("\ttwoparticle = ", INTERACTION_DIR + twobodyfile)
     print()
     
     # Basis of Slater determinants
-    basis = np.loadtxt(basisfile)
+    basis = np.loadtxt(BASIS_DIR + basisfile)
     dim = basis.ndim
     if dim == 1:
         basis_size = 1
@@ -25,9 +26,9 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
         n_particles = np.shape(basis)[1] - 1
 
     # One-body matrix elements
-    obme = np.loadtxt(oneparticle)
+    obme = np.loadtxt(INTERACTION_DIR + onebodyfile)
     # Two-body matrix elements
-    tbme = np.loadtxt(twoparticle)
+    tbme = np.loadtxt(INTERACTION_DIR + twobodyfile)
 
     mass_factor = (18./(16.+n_particles))**(0.3)
 
@@ -47,7 +48,6 @@ def hamiltonian(basisfile, oneparticle, twoparticle, orbitals):
                     for beta in range(0, alpha + 1):
                         if (basis[beta][:n_particles] == b).all():
                             H[alpha][beta] += phi*tb[4]*mass_factor
-                            print("Adding ", phi*tb[4]*mass_factor, " to [", alpha, "][", beta, "], phi = ", phi)
                             H[beta][alpha] = H[alpha][beta]
                             break
 

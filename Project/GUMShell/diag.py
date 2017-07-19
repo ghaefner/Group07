@@ -1,14 +1,15 @@
 import numpy as np
 
-EIGENSPACE_DIR = "eigenspace/"
-HAMILTONIAN_DIR = "hamiltonian/"
+from config import EIGENSPACE_DIR
+from config import HAMILTONIAN_DIR
 
 def diag(hamiltonian):
-    H = np.loadtxt(hamiltonian)
     
     print()
-    print("diag.py: Diagonalizing the Hamiltonian matrix from file '" + hamiltonian)
+    print("diag.py: Diagonalizing the Hamiltonian matrix from file '" + HAMILTONIAN_DIR + hamiltonian)
     print()
+    
+    H = np.loadtxt(HAMILTONIAN_DIR + hamiltonian)
 
     eigs, vecs = np.linalg.eig(H)
     eigs = np.sort(eigs)

@@ -1,14 +1,18 @@
 import numpy as np
+from config import ORBITAL_DIR
+from config import BASIS_DIR
 
-BASIS_DIR = "basis/"
-ORBITAL_DIR = "space/"
+WRITE_TEXT = True
+WRITE_BINARY = True
+WRITE_BINARY_AS_TEXT = True
+VERBOSE = True
 
-# If WRITE_TEXTFILE is False, the basis will only be written to a binary file
-WRITE_TEXTFILE = True
-VERBOSE = False
+def mscheme(orbitalfile, n_neutrons, n_protons, output_prefix):
 
-def mscheme(orbitalfile, n_neutrons, n_protons):
-
+    print()
+    print("mscheme.py: Creating basis of Slater determinants for", n_protons, "proton(s) and ", n_neutrons," neutron(s) in the orbitals from file'", ORBITAL_DIR + orbitalfile, "'")
+    print()
+    
     n_nucleons = n_neutrons + n_protons
     
     ###############################################################################
@@ -202,7 +206,8 @@ def mscheme(orbitalfile, n_neutrons, n_protons):
     # Calculate the number of allowed J-values and print them
     ###############################################################################
 
-    if VERBOSE:    	
+    if VERBOSE:
+        print()
         print("2*M\tD(2*J)\td(2*M)")
     
         M_values_unique, M_values_frequency = np.unique(M_values, return_counts=True)
@@ -220,9 +225,9 @@ def mscheme(orbitalfile, n_neutrons, n_protons):
     # Write basis states in odometric representation to a file
     ###############################################################################
    
-    if WRITE_TEXTFILE: 	
+    if WRITE_TEXT: 	
         # Write file header
-        f = open(BASIS_DIR + "basis.txt", 'w')
+        f = open(BASIS_DIR + output_prefix + ".txt", 'w')
         f.write("#")
         for i in range(n_neutrons):
             f.write("n(")
@@ -247,7 +252,7 @@ def mscheme(orbitalfile, n_neutrons, n_protons):
         f.close()
         
         print()
-        print("mscheme_bits.py: Saved basis of Slater determinants to '" + BASIS_DIR + "basis.txt'")
+        print("mscheme_bits.py: Saved basis of Slater in odometric representation determinants to '" + BASIS_DIR + output_prefix + ".txt'")
     
             
     ###############################################################################
@@ -257,40 +262,43 @@ def mscheme(orbitalfile, n_neutrons, n_protons):
     # The verbose way, where the output is still human-readable	
     
     # Write file header
-    f = open(BASIS_DIR + "basis_bit.txt", 'w')
-    f.write("#")
-    for i in range(n_states_neutrons):
-        f.write("n(")
-        f.write(str(i + 1))
-        f.write(")\t")
-    for i in range(n_states_protons):
-        f.write("p(")
-        f.write(str(i + 1))
-        f.write(")\t")
-    	    
-    f.write("2*M\n")
-    	
-    # Write states
-    for i in range(np.shape(basis_np_bit)[0]):
-        f.write(str(bin(int(basis_np_bit[i]))))
-    #    f.write(str(int(basis_np_bit[i])))
-        f.write("\t")
-        f.write(str(M_values[i]))
-        f.write("\n")
-    	    
-    f.close()
-    
-    # Output as a true binary file
-    
-#    basis_np_bit.tofile(BASIS_DIR + "basis_bit.bin")
-    np.save(BASIS_DIR + "basis_bit", basis_np_bit)
-    print(basis_np_bit)
-    
-
-    print()
-    print("mscheme_bits.py: Saved basis of Slater determinants in bit representation to '" + BASIS_DIR + "basis_bit.bin'")
-    print()
+    if WRITE_BINARY:
+        if WRITE_BINARY_AS_TEXT:
+            f = open(BASIS_DIR  + output_prefix + "_bit.txt", 'w')
+            f.write("#")
+            for i in range(n_states_neutrons):
+                f.write("n(")
+                f.write(str(i + 1))
+                f.write(")\t")
+            for i in range(n_states_protons):
+                f.write("p(")
+                f.write(str(i + 1))
+                f.write(")\t")
+            	    
+            f.write("2*M\n")
+            	
+            # Write states
+            for i in range(np.shape(basis_np_bit)[0]):
+                f.write(str(bin(int(basis_np_bit[i]))))
+            #    f.write(str(int(basis_np_bit[i])))
+                f.write("\t")
+                f.write(str(M_values[i]))
+                f.write("\n")
+            	    
+            f.close()
+        
+            print()
+            print("mscheme_bits.py: Saved basis of Slater determinants in bit representation to '" + BASIS_DIR + output_prefix + "_bit.txt'")
+            print()
+        
+        # Output as a true binary file
+        
+#        basis_np_bit.tofile(BASIS_DIR + "basis_bit.bin")
+        np.save(BASIS_DIR + output_prefix + "_bit", basis_np_bit)
+        
+        print("mscheme_bits.py: Saved basis of Slater determinants in bit representation to '" + BASIS_DIR + output_prefix + "_bit.npy'")
+        print()
     
 # For testing uncomment the following lines:
-orbitalfile = "sd_np.txt"
-mscheme(orbitalfile, 4, 0)
+#orbitalfile = "sd_np.txt"
+#mscheme(orbitalfile, 4, 0, "basis")
