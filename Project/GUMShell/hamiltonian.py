@@ -5,7 +5,7 @@ from config import BASIS_DIR
 from config import INTERACTION_DIR
 from config import HAMILTONIAN_DIR
 
-def hamiltonian(basisfile, onebodyfile, twobodyfile, orbitalfile):
+def hamiltonian(basisfile, onebodyfile, twobodyfile, output_prefix):
 
     print()
     print("hamiltonian.py: Calculating the Hamiltonian matrix with the following input:")
@@ -35,8 +35,6 @@ def hamiltonian(basisfile, onebodyfile, twobodyfile, orbitalfile):
     H = np.zeros((basis_size, basis_size))
 
     for alpha in range(basis_size):
-        if alpha == 20:
-            break
         for tb in tbme:
             if (tb[2] in basis[alpha][:n_particles]) and (tb[3] in basis[alpha][:n_particles]):
             
@@ -59,13 +57,11 @@ def hamiltonian(basisfile, onebodyfile, twobodyfile, orbitalfile):
     
         H[alpha][alpha] += spe
     spe = 0.
-    
-    print(H)
-    
-    np.savetxt(HAMILTONIAN_DIR + "Hamiltonian.txt", H, delimiter = " ")
+        
+    np.savetxt(HAMILTONIAN_DIR + output_prefix + "_hamiltonian.txt", H, delimiter = " ")
 
     print()
-    print("hamiltonian.py: Saved Hamiltonian matrix to '", HAMILTONIAN_DIR + "Hamiltonian.txt'")
+    print("hamiltonian.py: Saved Hamiltonian matrix to '", HAMILTONIAN_DIR + output_prefix + "_hamiltonian.txt'")
     print()
 
-hamiltonian("output/basis.txt", "interaction/sd_sp.int", "interaction/usdb_m.int", "space/sd.sp")
+#hamiltonian("out.txt", "sd_sp.int", "usdb_m.int", "out")

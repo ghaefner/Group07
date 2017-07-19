@@ -2,15 +2,17 @@ import numpy as np
 from phase_mod import J_plus
 from phase_mod import J_minus
 
-J_DIR = "eigenspace/"
+from config import ORBITAL_DIR
+from config import BASIS_DIR
+from config import EIGENSPACE_DIR
 
-def JpJm(basisfile, evectorfile, orbitalfile):
+def JpJm(basisfile, evectorfile, orbitalfile, output_prefix):
 
     print()
     print("jcoupling.py: Determining J quantum number of eigenvectors in file '", basisfile, "'")
     print()
     
-    basis = np.loadtxt(basisfile)
+    basis = np.loadtxt(BASIS_DIR + basisfile)
     dim = basis.ndim
     if dim == 1:
         basis_size = 1
@@ -20,17 +22,9 @@ def JpJm(basisfile, evectorfile, orbitalfile):
         basis_size = np.shape(basis)[0]
         n_particles = np.shape(basis)[1] - 1
         
-#    basis_zero_m = []
-#    for b in basis:
-#        if b[n_particles] == 0.:
-#            basis_zero_m.append(b.tolist())
-#    
-#    basis = basis_zero_m
-#    basis_size = np.shape(basis)[0]
-        
-    evectors = np.loadtxt(evectorfile)
+    evectors = np.loadtxt(EIGENSPACE_DIR + evectorfile)
 
-    sp = np.loadtxt(orbitalfile)
+    sp = np.loadtxt(ORBITAL_DIR + orbitalfile)
     n_sp = np.shape(sp)[0]
     max_osc = np.max(sp[:,1])
     min_osc = np.min(sp[:,1])
@@ -72,10 +66,10 @@ def JpJm(basisfile, evectorfile, orbitalfile):
     
     JpJm_evector_matrix = np.round(JpJm_evector_matrix)
     
-    np.savetxt(J_DIR + "jvalues.txt", JpJm_evector_matrix,  fmt='%i', delimiter=" ")
+    np.savetxt(EIGENSPACE_DIR + output_prefix + "_jvalues.txt", JpJm_evector_matrix,  fmt='%i', delimiter=" ")
     
     print()
-    print("jcoupling.py: Saved J values to '", J_DIR + "jvalues.txt'")
+    print("jcoupling.py: Saved J values to '", EIGENSPACE_DIR + output_prefix + "_jvalues.txt'")
     print()
     
 #JpJm("output/basis.txt", "eigenspace/eigenvectors.txt", "space/sd.sp")

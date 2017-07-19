@@ -2,7 +2,9 @@ import numpy as np
 from numpy import random
 from random import shuffle
 
-BASIS_DIR = "output/"
+from config import ORBITAL_DIR
+from config import BASIS_DIR
+from config import TRUNCATION_DIR
 
 def getSlaterEnergy(basisstate, orbitals):
     energy = 0.
@@ -28,15 +30,15 @@ def getShellOccupation(basisstate, limits):
 
     return(occ)
 
-def npnh(basisfile, orbitalfile, n):
+def npnh(basisfile, orbitalfile, n, output_prefix):
     
     print()
-    print("truncation.py: Truncating basis of Slater determinants in file'", basisfile, "'")
+    print("truncation.py: Truncating basis of Slater determinants in file'", BASIS_DIR + basisfile, "'")
     print("Truncation mode: ", int(n), "p", int(n), "h")
     print()
     
-    basis = np.loadtxt(basisfile)
-    orbitals = np.loadtxt(orbitalfile)
+    basis = np.loadtxt(BASIS_DIR + basisfile)
+    orbitals = np.loadtxt(ORBITAL_DIR + orbitalfile)
     
     # Determine the limits of the single nj orbitals
     n_val = orbitals[0][1]
@@ -80,10 +82,10 @@ def npnh(basisfile, orbitalfile, n):
         if 0.5*np.sum(np.abs(shell_occupation - shell_occupation_min)) <= n:
             trunc.append(b)
     
-    np.savetxt(BASIS_DIR + "basis_truncated.txt", trunc, delimiter=" ")
+    np.savetxt(BASIS_DIR + output_prefix + "_basis_truncated.txt", trunc, delimiter=" ")
     
     print()
-    print("truncation.py: Saved truncated basis to '" + BASIS_DIR + "basis_truncated.txt'")
+    print("truncation.py: Saved truncated basis to '" + BASIS_DIR + output_prefix + "_basis_truncated.txt'")
     print("The truncation reduced the basis size from ", np.shape(basis)[0], " to ", np.shape(trunc)[0])
     print()
   
@@ -147,6 +149,29 @@ def mscm(basisfile, orbitalfile, probability):
     
     print()
     print("truncation.py: Saved truncated basis to '" + BASIS_DIR + "basis_truncated.txt'")
+    print("The truncation reduced the basis size from ", np.shape(basis)[0], " to ", np.shape(trunc)[0])
+    print()
+    
+def mzero(basisfile, output_prefix):    
+    
+    print()
+    print("truncation.py: Truncating basis of Slater determinants in file'", basisfile, "'")
+    print("Truncation mode: M = 0 states")
+    print()
+    
+    basis = np.loadtxt(BASIS_DIR + basisfile)
+    
+    # Throw out Slater basis states at random
+    trunc = []
+    
+    for b in basis:
+       if b[-1] == 0:
+           trunc.append(b)
+    
+    np.savetxt(BASIS_DIR + output_prefix + "_basis_truncated.txt", trunc, delimiter=" ")
+    
+    print()
+    print("truncation.py: Saved truncated basis to '" + BASIS_DIR + output_prefix + "_basis_truncated.txt'")
     print("The truncation reduced the basis size from ", np.shape(basis)[0], " to ", np.shape(trunc)[0])
     print()
 
@@ -213,12 +238,16 @@ def occ(basisfile, orbitalfile, min_occ, max_occ):
     print("The truncation reduced the basis size from ", np.shape(basis)[0], " to ", np.shape(trunc)[0])
     print()
     
-def truncate(truncationfile, basisfile, orbitalfile):
-    print(truncationfile, " opened in truncate.py")
-    method = np.loadtxt(truncationfile)
+def truncate(truncationfile, basisfile, orbitalfile, output_prefix):
     
+    print()
+    print("truncation.py: Opened file '" + output_prefix + ".txt'")
+    print()
+    
+    method = np.loadtxt(TRUNCATION_DIR + truncationfile)
+        
     if method[0] == 0.:
-        npnh(basisfile, orbitalfile, method[1])
+        npnh(basisfile, orbitalfile, method[1], output_prefix)
     
     if method[0] == 1.:
         emax(basisfile, orbitalfile, method[1])

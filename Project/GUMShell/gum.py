@@ -3,10 +3,11 @@ from argparse import RawTextHelpFormatter
 import time
 
 from mscheme_bits import mscheme
-#from hamiltonian import hamiltonian
-#from diag import diag
-#from truncation import truncate
-#from jcoupling import JpJm
+from hamiltonian import hamiltonian
+from truncation import truncate
+from truncation import mzero
+from diag import diag
+from jcoupling import JpJm
 
 # Define directory names for certain files
 #ORBITAL_DIR="space/"
@@ -19,13 +20,14 @@ parser.add_argument("-n", "--neutrons", help="Number of neutrons", type=int)
 parser.add_argument("-p", "--protons", help="Number of protons", type=int)
 parser.add_argument("-o", "--orbitals", help="File for the single-particle orbits")
 parser.add_argument("-m", "--mscheme", help="Calculate M-scheme Slater basis", action='store_true')
-parser.add_argument("-ho")
-#parser.add_argument("-b", "--basis", help="File for the basis of Slater determinants")
-#parser.add_argument("-t", "--truncate", help="File for the truncation method")
-#parser.add_argument("-1p", "--oneparticle", help="File for the one-particle matrix elements")
-#parser.add_argument("-2p", "--twoparticle", help="File for the two-particle matrix elements")
-#parser.add_argument("-ho", "--hamilton", help="File for Hamiltonian matrix")
-#parser.add_argument("-evec", "--eigenvectors", help="File for Eigenvectors")
+parser.add_argument("-ho", "--hamiltonian", help="Set up the hamiltonian matrix", action='store_true')
+parser.add_argument("-hot", "--hamiltonian_truncated", help="Set up the hamiltonian matrix in the truncated basis", action='store_true')
+parser.add_argument("-t", "--truncate", help="File for the truncation method")
+parser.add_argument("-1b", "--onebody", help="File for the one-body matrix elements")
+parser.add_argument("-2b", "--twobody", help="File for the two-body matrix elements")
+parser.add_argument("-d", "--diag", help="Diagonalize Hamiltonian", action="store_true")
+parser.add_argument("-f", "--fast", help="Calculate only M = 0 states", action="store_true")
+parser.add_argument("-j", "--jvalues", help="Determine value of J for eigenvectors", action="store_true")
 args = parser.parse_args()
 
 START = time.time()
@@ -38,8 +40,49 @@ if args.mscheme:
         print("Warning: main.py: Neutron number set to zero or none given. Using N = 0.")
     if not args.protons:
         print("Warning: main.py: Proton number set to zero or none given. Using Z = 0.")
-    mscheme(args.orbitals, args.protons, args.neutrons, args.OUTPUT_PREFIX)
+    mscheme(args.orbitals, args.neutrons, args.protons, args.OUTPUT_PREFIX)
 
+if args.truncate:
+    if not args.orbitals:
+        print("Error: main.py: Basis truncation not possible without file of single-particle orbits. Aborting.")
+        exit(0)
+    truncate(args.truncate, args.OUTPUT_PREFIX + "_basis.txt", args.orbitals, args.OUTPUT_PREFIX)
+
+if args.fast:
+    if not args.orbitals:
+        print("Error: main.py: Basis truncation not possible without file of single-particle orbits. Aborting.")
+        exit(0)
+    if not args.hamiltonian_truncated:
+        print("Error: main.py: The fast option has to be used with a truncated hamiltonian, i.e. run with the '-hot' option. Aborting.")
+        exit(0)
+    mzero(args.OUTPUT_PREFIX + "_basis.txt", args.OUTPUT_PREFIX)        
+        
+if args.hamiltonian:
+    if not args.onebody:
+        print("Error: main.py: Calculation of Hamiltonian matrix not possible without file of one-body interactions. Aborting.")
+        exit(0)
+    if not args.twobody:
+        print("Error: main.py: Calculation of Hamiltonian matrix not possible without file of two-body interaction. Aborting.")
+        exit(0)
+    hamiltonian(args.OUTPUT_PREFIX + "_basis.txt", args.onebody, args.twobody, args.OUTPUT_PREFIX)
+
+if args.hamiltonian_truncated:
+    if not args.onebody:
+        print("Error: main.py: Calculation of Hamiltonian matrix not possible without file of one-body interactions. Aborting.")
+        exit(0)
+    if not args.twobody:
+        print("Error: main.py: Calculation of Hamiltonian matrix not possible without file of two-body interaction. Aborting.")
+        exit(0)
+    hamiltonian(args.OUTPUT_PREFIX + "_basis_truncated.txt", args.onebody, args.twobody, args.OUTPUT_PREFIX)
+
+if args.diag:
+    diag(args.OUTPUT_PREFIX + "_hamiltonian.txt", args.OUTPUT_PREFIX)
+    
+if args.jvalues:
+    if not args.orbitals:
+        print("Error: main.py: Calculation of J not possible without file of single-particle orbits. Aborting.")
+        exit(0)   
+    JpJm(args.OUTPUT_PREFIX + "_basis_truncated.txt", args.OUTPUT_PREFIX + "_eigenvectors.txt", args.orbitals, args.OUTPUT_PREFIX)
 # Check several conditions
 # The most important file to have are the single-particle orbitals. All calculations rely on this
 #if not args.orbitals:

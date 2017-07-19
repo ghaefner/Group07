@@ -227,7 +227,7 @@ def mscheme(orbitalfile, n_neutrons, n_protons, output_prefix):
    
     if WRITE_TEXT: 	
         # Write file header
-        f = open(BASIS_DIR + output_prefix + ".txt", 'w')
+        f = open(BASIS_DIR + output_prefix + "_basis.txt", 'w')
         f.write("#")
         for i in range(n_neutrons):
             f.write("n(")
@@ -252,7 +252,7 @@ def mscheme(orbitalfile, n_neutrons, n_protons, output_prefix):
         f.close()
         
         print()
-        print("mscheme_bits.py: Saved basis of Slater in odometric representation determinants to '" + BASIS_DIR + output_prefix + ".txt'")
+        print("mscheme_bits.py: Saved basis of Slater in odometric representation determinants to '" + BASIS_DIR + output_prefix + "_basis.txt'")
     
             
     ###############################################################################
@@ -264,7 +264,7 @@ def mscheme(orbitalfile, n_neutrons, n_protons, output_prefix):
     # Write file header
     if WRITE_BINARY:
         if WRITE_BINARY_AS_TEXT:
-            f = open(BASIS_DIR  + output_prefix + "_bit.txt", 'w')
+            f = open(BASIS_DIR  + output_prefix + "_basis_bit.txt", 'w')
             f.write("#")
             for i in range(n_states_neutrons):
                 f.write("n(")
@@ -288,15 +288,15 @@ def mscheme(orbitalfile, n_neutrons, n_protons, output_prefix):
             f.close()
         
             print()
-            print("mscheme_bits.py: Saved basis of Slater determinants in bit representation to '" + BASIS_DIR + output_prefix + "_bit.txt'")
+            print("mscheme_bits.py: Saved basis of Slater determinants in bit representation to '" + BASIS_DIR + output_prefix + "_basis_bit.txt'")
             print()
         
         # Output as a true binary file
         
 #        basis_np_bit.tofile(BASIS_DIR + "basis_bit.bin")
-        np.save(BASIS_DIR + output_prefix + "_bit", basis_np_bit)
+        np.save(BASIS_DIR + output_prefix + "_basis_bit", basis_np_bit)
         
-        print("mscheme_bits.py: Saved basis of Slater determinants in bit representation to '" + BASIS_DIR + output_prefix + "_bit.npy'")
+        print("mscheme_bits.py: Saved basis of Slater determinants in bit representation to '" + BASIS_DIR + output_prefix + "_basis_bit.npy'")
         print()
     
 # For testing uncomment the following lines:
