@@ -3,7 +3,7 @@ import numpy as np
 from config import EIGENSPACE_DIR
 from config import HAMILTONIAN_DIR
 
-SORT_EIGENVALUES = True
+SORT_EIGENVALUES = False
 
 def diag(hamiltonian, output_prefix):
     

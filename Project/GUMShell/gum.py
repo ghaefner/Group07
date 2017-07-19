@@ -55,7 +55,12 @@ if args.fast:
     if not args.hamiltonian_truncated:
         print("Error: main.py: The fast option has to be used with a truncated hamiltonian, i.e. run with the '-hot' option. Aborting.")
         exit(0)
-    mzero(args.OUTPUT_PREFIX + "_basis.txt", args.OUTPUT_PREFIX)        
+    if args.neutrons % 2 == 0 and args.protons % 2 == 0:
+        mzero(args.OUTPUT_PREFIX + "_basis.txt", args.OUTPUT_PREFIX, True)        
+    elif args.neutrons % 2 == 1 and args.protons % 2 == 1:
+        mzero(args.OUTPUT_PREFIX + "_basis.txt", args.OUTPUT_PREFIX, True)        
+    else:
+        mzero(args.OUTPUT_PREFIX + "_basis.txt", args.OUTPUT_PREFIX, False)        
         
 if args.hamiltonian:
     if not args.onebody:
@@ -82,44 +87,7 @@ if args.jvalues:
     if not args.orbitals:
         print("Error: main.py: Calculation of J not possible without file of single-particle orbits. Aborting.")
         exit(0)   
-    JpJm(args.OUTPUT_PREFIX + "_basis_truncated.txt", args.OUTPUT_PREFIX + "_eigenvectors.txt", args.orbitals, args.OUTPUT_PREFIX)
-# Check several conditions
-# The most important file to have are the single-particle orbitals. All calculations rely on this
-#if not args.orbitals:
-#    print("Warning: main.py: No file of single-particle orbitals given. Aborting.")
-#    exit(0)
-#
-## If the number of particles is given, calculate the Slater determinant basis. If not, skip this calculation and assume
-## some basis file already exists and is given to the code via the '-b' option (or use default 'basis.txt')
-#
-#if not args.nparticles:
-#    print("Warning: main.py: No particle number specified. Skipping calculation of basis.")
-#
-#else:    
-#    mscheme(args.orbitals, args.nparticles)
-#    
-#if not args.basis:
-#    print("Warning: main.py: No basis file given, but one-particle and two-particle matrix elements given.")
-#    print("Using standard basis file 'basis.txt'")
-#    args.basis = BASIS_DIR + "basis.txt"
-#    
-#if args.truncate:
-#    print(args.truncate)
-#    truncate(args.truncate, args.basis, args.orbitals)
-#    args.basis = BASIS_DIR + "basis_truncated.txt"
-#
-## The calculation of the Hamiltonian needs, in addition, the one- and two-particle matrix elements
-#if (not args.oneparticle or not args.twoparticle):
-#    print("Warning: main.py: Incomplete input for calculation of hamiltonian matrix. Aborting.")
-#    exit(0)
-#    
-#hamiltonian(args.basis, args.oneparticle, args.twoparticle, args.orbitals)
-#
-#if args.hamilton:
-#    diag(args.hamilton)
-#
-#if args.eigenvectors:
-#    JpJm(args.basis, args.eigenvectors, args.orbitals)
+    JpJm(args.OUTPUT_PREFIX + "_basis_truncated.txt", args.OUTPUT_PREFIX + "_eigenvectors.txt", args.orbitals, args.OUTPUT_PREFIX) 
     
 STOP = time.time()
 

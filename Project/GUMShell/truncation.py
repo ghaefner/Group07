@@ -152,22 +152,31 @@ def mscm(basisfile, orbitalfile, probability):
     print("The truncation reduced the basis size from ", np.shape(basis)[0], " to ", np.shape(trunc)[0])
     print()
     
-def mzero(basisfile, output_prefix):    
+def mzero(basisfile, output_prefix, even):    
     
     print()
     print("truncation.py: Truncating basis of Slater determinants in file'", basisfile, "'")
-    print("Truncation mode: M = 0 states")
+    if even:
+        print("Truncation mode: M = 0 states")
+    else:
+        print("Truncation mode: M = 1 states")        
     print()
     
     basis = np.loadtxt(BASIS_DIR + basisfile)
     
-    # Throw out Slater basis states at random
+    # Only keep Slater determinants with
+    # M = 0 for even-even or odd-odd nuclei
+    # M = 1 for odd-even nuclei
     trunc = []
-    
-    for b in basis:
-       if b[-1] == 0:
-           trunc.append(b)
-    
+    if even:
+        for b in basis:
+            if b[-1] == 0:
+                trunc.append(b)
+    else:
+        for b in basis:
+            if b[-1] == 1:
+                trunc.append(b)
+        
     np.savetxt(BASIS_DIR + output_prefix + "_basis_truncated.txt", trunc, delimiter=" ")
     
     print()

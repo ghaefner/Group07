@@ -35,6 +35,7 @@ def mscheme(orbitalfile, n_neutrons, n_protons, output_prefix):
     # Check if the file format is correct (protons after neutrons), calculate the
     # number of neutron/proton states and the offset index where the proton
     # orbitals start
+    PROTON_OFFSET = n_states_tot
     for i in range(n_states_tot - 1):
         if orbitals[i][T] < orbitals[i+1][T]:
             print("Error: mscheme_bits.py: Wrong format of input file ", orbitalfile + ".\n Neutrons need to be defined before protons. Aborting.")

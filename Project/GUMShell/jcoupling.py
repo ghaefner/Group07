@@ -6,6 +6,16 @@ from config import ORBITAL_DIR
 from config import BASIS_DIR
 from config import EIGENSPACE_DIR
 
+UPPER_LIMIT_JJPLUS1 = 500
+
+def getJ(jjplus1):
+    for j in range(0, UPPER_LIMIT_JJPLUS1):
+        if j*(j+1.) == jjplus1:
+            break
+        
+    print(jjplus1, " --> ", j)
+    return j
+
 def JpJm(basisfile, evectorfile, orbitalfile, output_prefix):
 
     print()
@@ -47,13 +57,11 @@ def JpJm(basisfile, evectorfile, orbitalfile, output_prefix):
                         for osc2 in np.arange(min_osc, max_osc + 1., 1.):
                             for j2 in np.arange(min_j, max_m + 1., 2.):
                                 for m2 in np.arange(min_m, max_m + 1., 2.):
-                                    phase_minus, beta_minus = J_minus(osc2, j2, m2 + 2., n_particles, beta_plus, sp, n_sp)
-                                    
+                                    phase_minus, beta_minus = J_minus(osc2, j2, m2 + 2., n_particles, beta_plus, sp, n_sp) 
                                     if phase_minus != 0:
                                         for k in range(basis_size):
                                             if (basis[k][:-1] == beta_minus).all():
                                                 JpJm_matrix[i][k] += phase_plus*phase_minus
-
 
     # Calculate the matrix elements of the J^- J^+ operator between the Eigenvectors
     JpJm_evector_matrix = np.zeros((np.shape(basis)[0], np.shape(basis)[0]))
@@ -65,11 +73,15 @@ def JpJm(basisfile, evectorfile, orbitalfile, output_prefix):
                     JpJm_evector_matrix[i][m] += evectors[j][i]*evectors[n][m]*JpJm_matrix[j][n]
     
     JpJm_evector_matrix = np.round(JpJm_evector_matrix)
+    J_values = np.zeros(np.shape(JpJm_evector_matrix)[0])
     
-    np.savetxt(EIGENSPACE_DIR + output_prefix + "_jvalues.txt", JpJm_evector_matrix,  fmt='%i', delimiter=" ")
+    for j in range(np.shape(JpJm_evector_matrix)[0]):
+        J_values[j] = getJ(JpJm_evector_matrix[j][j])
+    
+    np.savetxt(EIGENSPACE_DIR + output_prefix + "_jvalues.txt", J_values,  fmt='%i', delimiter=" ")
     
     print()
     print("jcoupling.py: Saved J values to '", EIGENSPACE_DIR + output_prefix + "_jvalues.txt'")
     print()
     
-#JpJm("output/basis.txt", "eigenspace/eigenvectors.txt", "space/sd.sp")
+#JpJm("18o_fast_basis_truncated.txt", "18o_fast_eigenvectors.txt", "sd.txt", "18o_fast)

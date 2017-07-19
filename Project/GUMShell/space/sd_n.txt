@@ -1,0 +1,18 @@
+# sd - shell, only neutrons
+# Column 1: Unique level ID
+# Column 2: Oszillator quantum number
+# Column 3: 2*j
+# Column 4: 2*m
+# Column 5: 2*t
+1	1	1	-1	1
+2	1	1	1	1
+3	0	3	-3	1
+4	0	3	-1	1
+5	0	3	1	1
+6	0	3	3	1
+7	0	5	-5	1
+8	0	5	-3	1
+9	0	5	-1	1
+10	0	5	1	1
+11	0	5	3	1
+12	0	5	5	1
