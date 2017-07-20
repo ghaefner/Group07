@@ -33,7 +33,7 @@ INTERACTION_DIR = "interaction/"
 #print("\ttwobody = ", INTERACTION_DIR + twoparticle)
 #print()
 
-basisfile = "basis_bit.npy"
+basisfile = "20o_basis_bit.npy"
 onebodyfile = "sd_sp_np.int"
 twobodyfile = "usdb_m.int"
 
@@ -68,8 +68,8 @@ H = np.zeros((n_basis_states, n_basis_states))
 
 # Loop over basis states
 for i in range(n_basis_states):
-    if i == 5:
-        break
+#    if i == 5:
+#        break
     bb = basis[i]
     # Loop over available two-body matrix elements
     for m in np.arange(n_tbme):
@@ -78,7 +78,7 @@ for i in range(n_basis_states):
         # Check if the action of the two annihilation operators in the matrix
         # element is valid
         if (bin(b & anni1_tb[m]).count('1') == 1) and (bin(b & anni2_tb[m]).count('1') == 1): # This one is faster than the version above!
-            print(bin(anni1_tb[m]), "\t", bin(anni2_tb[m]))
+#            print(bin(anni1_tb[m]), "\t", bin(anni2_tb[m]))
             # Act with the annihilation operators on the basis state
             bb = b
             b -= anni1_tb[m]
@@ -91,7 +91,7 @@ for i in range(n_basis_states):
             # element is valid
             if (not b & crea1_tb[m]) and (not b & crea2_tb[m]):
                 # Act with the creation operators on the basis state
-                print("crea")
+#                print("crea")
                 bb = b
                 b += crea1_tb[m]
                 phase = phase * (-1)**(bin(bb & ((1 << crea1_tb[m]) -1) ).count('1'))
@@ -105,7 +105,7 @@ for i in range(n_basis_states):
                     if b == basis[j]:
                         H[i][j] += phase*tbme[m][4]*mass_factor
 #                        print(bin(anni_tb[m]), "\t", bin(crea_tb[m]), "\t", bin(anni_tb[m] - crea_tb[m]))
-                        print(phase*tbme[m][4]*mass_factor, "[", i, "][", j, "], phi = ", phase, ", ", bin(b), " ", bin(bb))
+#                        print(phase*tbme[m][4]*mass_factor, "[", i, "][", j, "], phi = ", phase, ", ", bin(b), " ", bin(bb))
                         break
                     
 # Loop over basis states
