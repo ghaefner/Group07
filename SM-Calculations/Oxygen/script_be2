@@ -13,4 +13,4 @@ set ylabel 'B(E2: 2_1^+ -> 0_1^+) [W.u.]' font "Computer Modern, 14"
 
 #unset key
 
-p 'r42_ox' u ($1-Z0):($4/wu) w linespoints pt 9 ps 2 t 'USDB', 'r42_ox' u ($1-Z0):5:6 w yerrorbars pt 3 ps 2 t 'Exp.'
+p 'r42_ox' u ($1-Z0):($4/$5) w linespoints pt 9 ps 2 t 'USDB', 'r42_ox' u ($1-Z0):6:7 w yerrorbars pt 3 ps 2 t 'Exp.'
